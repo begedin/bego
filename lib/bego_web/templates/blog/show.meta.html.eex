@@ -1,0 +1,2 @@
+<meta property="og:title" content="<%= @post["seo_title"] %>" />
+<meta property="description" content="<%= @post["meta_description"] %>" />

@@ -17,3 +17,5 @@ config :bego, Bego.Repo,
   database: "bego_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :bego, buttercms_token: "fake-token"

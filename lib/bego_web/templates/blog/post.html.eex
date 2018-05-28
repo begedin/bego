@@ -1,0 +1,6 @@
+<section class="section">
+  <article class="container">
+    <h1 class="title"><%= @post["title"] %></h1>
+    <%= raw(@post["body"]) %>
+    <article>
+</section>

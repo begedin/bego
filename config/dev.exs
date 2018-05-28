@@ -1,3 +1,4 @@
+nil
 use Mix.Config
 
 # For development, we disable any cache and enable
@@ -11,8 +12,7 @@ config :bego, BegoWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
-                    cd: Path.expand("../assets", __DIR__)]]
+  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin", cd: Path.expand("../assets", __DIR__)]]
 
 # ## SSL Support
 #
@@ -41,6 +41,8 @@ config :bego, BegoWeb.Endpoint,
     ]
   ]
 
+config :bego, buttercms_token: System.get_env("BUTTERCMS_TOKEN")
+
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 
@@ -55,5 +57,4 @@ config :bego, Bego.Repo,
   password: "postgres",
   database: "bego_dev",
   hostname: "localhost",
-  pool_size: 10,
-  buttercsms_token: System.get_env("BUTTERCMS_TOKEN")
+  pool_size: 10

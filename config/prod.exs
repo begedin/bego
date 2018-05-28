@@ -23,7 +23,7 @@ config :bego, BegoWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :bego, buttercsms_token: System.get_env("BUTTERCMS_TOKEN")
+config :bego, buttercms_token: System.get_env("BUTTERCMS_TOKEN")
 
 config :sift, Bego.Repo,
   adapter: Ecto.Adapters.Postgres,

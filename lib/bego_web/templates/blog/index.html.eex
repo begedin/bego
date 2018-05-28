@@ -1,0 +1,7 @@
+<pre style="height: 800px">
+  <%= @posts |> Kernel.inspect(pretty: true) %>
+</pre>
+
+<%= for post <- @posts do %>
+  <%= render(@view_module, "post.html", assigns |> Map.put(:post, post)) %>
+<% end %>

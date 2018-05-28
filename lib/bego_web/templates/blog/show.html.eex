@@ -1,0 +1,4 @@
+<pre style="height: 800px">
+  <%= @post |> Kernel.inspect(pretty: true) %>
+</pre>
+<%= render(@view_module, "post.html", assigns) %>

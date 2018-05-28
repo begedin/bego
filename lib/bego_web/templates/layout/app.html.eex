@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Hello Bego!</title>
+    <%= render_existing(@view_module, "#{@conn |> Phoenix.Controller.action_name()}.meta.html", assigns) ||
+      render(BegoWeb.LayoutView, "meta.html", assigns) %>
+    <%= render_existing(@view_module, "#{@conn |> Phoenix.Controller.action_name()}.title.html", assigns) ||
+      render(BegoWeb.LayoutView, "title.html", assigns) %>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -15,11 +17,10 @@
     <div class="container">
       <header class="header">
         <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="<%= blog_path(@conn, :index) %>">Blog</a></li>
           </ul>
         </nav>
-        <span class="logo"></span>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
