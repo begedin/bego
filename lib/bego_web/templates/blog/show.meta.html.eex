@@ -1,2 +1,16 @@
-<meta property="og:title" content="<%= @post["seo_title"] %>" />
-<meta property="description" content="<%= @post["meta_description"] %>" />
+<%= tag :meta, name: "description", content: @post["meta_description"] %>
+<%= tag :meta, name: "title", content: @post["seo_title"] %>
+<%= tag :meta, name: "article:publisher", content: "" %>
+
+<%= tag :meta, property: "og:type", content: "website" %>
+<%= tag :meta, property: "og:site_name", content: "Pray More Novenas" %>
+<%= tag :meta, property: "og:image", content: @post["featured_image"] %>
+<%= tag :meta, property: "og:title", content: @post["seo_title"] %>
+<%= tag :meta, property: "og:description", content: @post["meta_description"] %>
+
+<%= tag :meta, name: "twitter:card", content: "summary_large_image" %>
+<%= tag :meta, name: "twitter:creator", content: @post["author"]["twitter_handle"] %>
+<%= tag :meta, name: "twitter:image", content: @post["featured_image"] %>
+<%= tag :meta, name: "twitter:title", content: @post["seo_title"] %>
+<%= tag :meta, name: "twitter:site", content: @post["author"]["twitter_handle"] %>
+<%= tag :meta, name: "twitter:description", content: @post["summary"] %>

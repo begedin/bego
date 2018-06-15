@@ -1,0 +1,1 @@
+<%= link("Home/Blog", class: "navbar-item", to: blog_path(@conn, :index)) %>

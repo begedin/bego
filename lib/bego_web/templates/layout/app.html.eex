@@ -15,11 +15,14 @@
 
   <body>
     <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="<%= blog_path(@conn, :index) %>">Blog</a></li>
-          </ul>
+      <header>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <%= link("BEGO", class: "navbar-item", to: blog_path(@conn, :index)) %>
+            <%= render(BegoWeb.LayoutView, "navigation.html", assigns) %>
+          </div>
+          <div class="navbar-menu"></div>
+          <div class="navbar-burger"></div>
         </nav>
       </header>
 

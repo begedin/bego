@@ -1,0 +1,18 @@
+<% title = "Bego, Nikola Begedin - Blog" %>
+<% description = "Bego, Nikola Begedin - Technical Blog" %>
+<% [%{"author" => author} | _rest] = @posts %>
+<%= tag :meta, name: "description", content: description %>
+<%= tag :meta, name: "title", content: title  %>
+<%#= tag :meta, name: "article:publisher", content: "" %>
+
+<%= tag :meta, property: "og:type", content: "website" %>
+<%= tag :meta, property: "og:site_name", content: "Bego" %>
+<%= tag :meta, property: "og:title", content: title %>
+<%= tag :meta, property: "og:description", content: description %>
+
+<%= tag :meta, name: "twitter:card", content: "summary" %>
+<%= tag :meta, name: "twitter:creator", content: author["twitter_handle"] %>
+<%#= tag :meta, name: "twitter:image", content: missing %>
+<%= tag :meta, name: "twitter:title", content: title %>
+<%= tag :meta, name: "twitter:site", content: author["twitter_handle"] %>
+<%= tag :meta, name: "twitter:description", content: description %>

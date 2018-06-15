@@ -1,6 +1,8 @@
 defmodule BegoWeb.BlogController do
   use BegoWeb, :controller
 
+  action_fallback(:fallback)
+
   defp index_url() do
     "https://api.buttercms.com/v2/posts/?page=1&page_size=10&auth_token=#{auth_token()}"
   end
@@ -14,8 +16,6 @@ defmodule BegoWeb.BlogController do
   end
 
   def index(conn, %{}) do
-    IO.puts("index")
-
     with {:ok, %{status_code: 200, body: body}} <- index_url() |> HTTPoison.get(),
          {:ok, data} <- Poison.decode(body),
          %{"data" => posts} <- data do
@@ -34,4 +34,6 @@ defmodule BegoWeb.BlogController do
       |> render("show.html")
     end
   end
+
+  defp fallback(conn, nil), do: conn
 end

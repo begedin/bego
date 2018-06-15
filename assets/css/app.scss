@@ -1,5 +1,21 @@
 @import "bulma";
 
+ul {
+  padding: 1rem;
+  list-style-type: disc;
+
+  li {
+    padding-bottom: 0.5rem;
+    :last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 1rem;
 }
