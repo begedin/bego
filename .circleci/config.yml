@@ -70,6 +70,9 @@ jobs:
       - image: buildpack-deps:trusty
     steps:
       - checkout
+      - run:
+          name: Run setup script
+          command: bash .circleci/setup-heroku.sh
       - add_ssh_keys:
           fingerprints:
             - $HEROKU_KEY_FINGERPRINT
