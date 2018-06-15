@@ -64,26 +64,6 @@ jobs:
             - assets/node_modules
             - ~/.yarn-cache
 
-
-  deploy-staging:
-    working_directory: ~/blog
-    docker:
-      - image: buildpack-deps:trusty
-    steps:
-      - checkout
-      - run:
-          name: Run setup script
-          command: bash .circleci/setup-heroku.sh
-      - add_ssh_keys:
-          fingerprints:
-            - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
-      - run:
-          name: Deploy Development to Heroku Staging
-          command: |
-            git push --force git@heroku.com:$HEROKU_STAGING_APP.git HEAD:refs/heads/master
-            heroku run "POOL_SIZE=2 mix ecto.migrate" --app $HEROKU_STAGING_APP
-            heroku restart --app $HEROKU_STAGING_APP
-
   deploy-production:
     working_directory: ~/bego
     docker:
@@ -108,12 +88,6 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - deploy-staging:
-          requires:
-            - build
-          filters:
-            branches:
-              only: develop
       - deploy-production:
           requires:
             - build
