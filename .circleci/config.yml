@@ -1,87 +1,48 @@
 jobs:
   build:
-    working_directory: ~/bego
     docker:
-      - image: circleci/elixir:1.6-node-browsers
-      - image: postgres:10
-        environment:
-          POSTGRES_USER: ubuntu
+      - image: circleci/node:latest-browsers
     steps:
       - checkout
       - restore_cache:
           keys:
-          - v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
-          - v1-mix-cache-{{ .Branch }}
-          - v1-mix-cache
-      - restore_cache:
-          keys:
-          - v1-build-cache-{{ .Branch }}
-          - v1-build-cache
-      - restore_cache:
-          keys:
-            - v2-yarn-cache-{{ .Branch }}-{{ checksum "assets/yarn.lock" }}
-            - v2-yarn-cache-{{ .Branch }}
-            - v2-yarn-cache
-      - run: mix local.hex --force
-      - run: mix local.rebar
-      - run:
-          name: Fetching backend dependencies
-          command: mix deps.get
+            - v3-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v3-yarn-cache-{{ .Branch }}
+            - v3-yarn-cache
       - run:
           name: Fetching frontend dependencies
-          command: mix yarn
+          command: yarn
       - run:
-          name: Running backend tests
-          command: mix test
+          name: Linting
+          command: yarn lint
+      - run:
+          name: Write good
+          command: yarn write-good
       - save_cache:
-          key: v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
-          paths: "deps"
-      - save_cache:
-          key: v1-mix-cache-{{ .Branch }}
-          paths: "deps"
-      - save_cache:
-          key: v1-mix-cache
-          paths: "deps"
-      - save_cache:
-          key: v1-build-cache-{{ .Branch }}
-          paths: "_build"
-      - save_cache:
-          key: v1-build-cache
-          paths: "_build"
-      - save_cache:
-          key: v2-yarn-cache-{{ .Branch }}-{{ checksum "assets/yarn.lock" }}
+          key: v3-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
-            - assets/node_modules
+            - node_modules
             - ~/.yarn-cache
       - save_cache:
-          key: v2-yarn-cache-{{ .Branch }}
+          key: v3-yarn-cache-{{ .Branch }}
           paths:
-            - assets/node_modules
+            - node_modules
             - ~/.yarn-cache
       - save_cache:
-          key: v2-yarn-cache
+          key: v3-yarn-cache
           paths:
-            - assets/node_modules
+            - node_modules
             - ~/.yarn-cache
 
   deploy-production:
-    working_directory: ~/bego
     docker:
       - image: buildpack-deps:trusty
     steps:
       - checkout
       - run:
-          name: Run setup script
-          command: bash .circleci/setup-heroku.sh
-      - add_ssh_keys:
-          fingerprints:
-            - $HEROKU_KEY_FINGERPRINT
-      - run:
-          name: Deploy Master to Heroku Production
+          name: Deploy to Heroku Production
           command: |
             git push --force https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_PRODUCTION_APP.git master
-            heroku run "POOL_SIZE=2 mix ecto.migrate" --app $HEROKU_PRODUCTION_APP
-            heroku restart --app $HEROKU_PRODUCTION_APP
 
 workflows:
   version: 2

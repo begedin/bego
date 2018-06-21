@@ -1,8 +1,0 @@
-<section class="section">
-  <article class="container">
-    <h1 class="title">
-      <%= link(@post["title"], to: blog_path(@conn, :show, @post["slug"])) %>
-    </h1>
-    <%= raw(@post["body"]) %>
-  <article>
-</section>

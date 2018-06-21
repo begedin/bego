@@ -1,0 +1,13 @@
+{
+  "id": "begedin",
+  "name": "Nikola Begedin",
+  "image": "https://api.adorable.io/avatars/150/test.png",
+  "url": "http://bego.hr/",
+  "location": "Croatia",
+  "bio": "Software developer from Croatia. Working remotely for years now. Experience with Ember, React, Ruby + Rails, Elixir, Phoenix, .NET",
+  "socialUrls": [
+    "https://github.com/begedin",
+    "https://twitter.com/begedinnikola",
+    "mailto:begedinnikola@gmail.com"
+  ]
+}

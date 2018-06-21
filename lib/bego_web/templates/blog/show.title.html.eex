@@ -1,1 +1,0 @@
-<title><%= "Bego, IT Consulting | Blog | #{@post["title"]}" %></title>
