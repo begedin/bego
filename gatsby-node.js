@@ -94,7 +94,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         // Creates Index page
         createPaginationPages({
           createPage,
-          edges: result.data.allMarkdownRemark.edges,
+          edges: result.data.allMarkdownRemark.edges.filter(
+            e => e.node.frontmatter.category !== 'page'
+          ),
           component: indexPage,
           limit: siteConfig.sitePaginationLimit
         });

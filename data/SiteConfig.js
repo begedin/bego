@@ -1,6 +1,6 @@
 module.exports = {
-  // The name of directory that contains your posts.
   blogPostDir: "posts",
+  blogPageDir: "pages",
   // The name of directory that contains your 'authors' folder.
   blogAuthorDir: "/",
   // The default and fallback author ID used for blog posts without a defined author.
