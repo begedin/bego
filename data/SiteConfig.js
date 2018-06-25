@@ -29,7 +29,7 @@ module.exports = {
   // The max number of posts per page.
   sitePaginationLimit: 10,
   // GA tracking ID.
-  // googleAnalyticsID: "UA-111982167-1",
+  googleAnalyticsID: "UA-40953469-3",
   // enables Disqus comments, visually deviates from original Casper theme.
   // disqusShortname: "https-vagr9k-github-io-gatsby-advanced-starter",
   siteSocialUrls: [
