@@ -121,13 +121,13 @@ Our frontend testing tool can now
 
 The end result is, our frontend test runs isolated from other frontend tests, while at the same time being able to access your actual backend, instead of using a fake one.
 
-# Setting up Cypress to use Ecto sandbox mode
+# Setting up Cypress to use a Phoenix backend in Ecto sandbox mode
 
 I'm assuming you've already followed the Getting Started section of the cypress docs. The base API url has been set and everything is ready. Ideally, you already have a test running and hitting our `MIX_ENV=e2e mix phx.server` backend running in another tab, causing that backend to error out due to duplicate date (because Cypress is not triggering sandbox mode).
 
 First thing to note is that even if you set it up now, the tests will still likely fail. You have to do a `MIX_ENV=e2e mix ecto.reset` to clean up the database first.
 
-## with an Apollo GraphQL app
+## Cypress with a Phoenix/Absinthe backend and a React Apollo frontend
 
 This is setup where I've taught myself this procedure.
 
@@ -254,7 +254,7 @@ As an alternative for request waiting, we could have the `ApolloClient` not use 
 
 Ideally, at some point Cypress will know to wait for outgoing Fetch API requests to and we can just remove this complexity.
 
-# Setting up Cypress to use Ecto sandbox mode with a JSON API app
+# Cypress with a Phoenix JSON API backend and a React REST frontend
 
 Really, the approach here is near identical to the GraphQL approach, except, if the network layer of the app uses XHR instead of Fetch, we don't need to maintain a fetch counter and tests will wait properly by default.
 
