@@ -31,7 +31,7 @@ module.exports = {
   // GA tracking ID.
   googleAnalyticsID: "UA-40953469-3",
   // enables Disqus comments, visually deviates from original Casper theme.
-  // disqusShortname: "https-vagr9k-github-io-gatsby-advanced-starter",
+  disqusShortname: "bego-hr",
   siteSocialUrls: [
     "https://github.com/begedin",
     "https://twitter.com/begedinnikola",
