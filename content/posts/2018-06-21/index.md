@@ -100,7 +100,7 @@ Then, I add a couple of lines to the `MyAppWeb.Endpoint` module:
 use Phoenix.Endpoint, otp_app: :sift
 
 if Application.get_env(:my_app, :sql_sandbox) do
-  plug(Phoenix.Ecto.SQL.Sandbox, at: "/sandbox", header: "x-sandbox-id", repo: MyApp.Repo)
+  plug(Phoenix.Ecto.SQL.Sandbox, at: "/sandbox", header: "x-session-id", repo: MyApp.Repo)
 end
 ```
 
@@ -109,15 +109,15 @@ What that does is, if I run my server with `MIX_ENV=e2e mix phx.server`, the rou
 - `POST /sandbox` checks out a sandbox connection
 - `DELETE /sandbox` checks in a sandbox connection
 
-It also adds a plug layer to all other routes which checks for an `x-sandbox-id` header and assigns the handler for that request the checked out connection.
+It also adds a plug layer to all other routes which checks for an `x-session-id` header and assigns the handler for that request the checked out connection.
 
 Get where I'm going with this?
 
 Our frontend testing tool can now
 
 - make a `POST` request to `/sandbox` to check out a sandbox connection and get back an id token at the start of the test
-- sign all further requests in that test with an `x-sandbox-id` header, the value of which is that token, to use the checked out sandbox connection
-- make a `DELETE` request to `/sandbox`, with an `x-sandbox-id` header, to check in the same sandbox connection at the end of the test
+- sign all further requests in that test with an `x-session-id` header, the value of which is that token, to use the checked out sandbox connection
+- make a `DELETE` request to `/sandbox`, with an `x-session-id` header, to check in the same sandbox connection at the end of the test
 
 The end result is, our frontend test runs isolated from other frontend tests, while at the same time being able to access your actual backend, instead of using a fake one.
 
@@ -244,7 +244,7 @@ Cypress.Commands.add('dropSession', () =>
   cy.waitForFetches().then(() =>
     fetch('/api/sandbox', {
       method: 'DELETE',
-      headers: { 'x-user-agent': Cypress.env('sessionId') },
+      headers: { 'x-session-id': Cypress.env('sessionId') },
     }),
   ),
 );
