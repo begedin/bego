@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-casper",
   "description": "A static blog in gatsby and github.",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "Hays Clark <hays.clark@gmail.com>",
   "dependencies": {
     "babel-eslint": "^8.1.2",
