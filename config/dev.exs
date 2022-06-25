@@ -26,7 +26,8 @@ config :bego, BegoWeb.Endpoint,
   secret_key_base: "VGIkx5d9cpyZE3I44VsA6PdSMCChtarK2Z+vRszWvLrCoTrzOolV0yKiRTuQqqcv",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -59,7 +60,7 @@ config :bego, BegoWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/bego_web/(live|views)/.*(ex)$",
+      ~r"lib/bego_web/(live|views|ui|page)/.*(ex)$",
       ~r"lib/bego_web/templates/.*(eex)$"
     ]
   ]
