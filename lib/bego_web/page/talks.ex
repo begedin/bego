@@ -1,8 +1,9 @@
 defmodule BegoWeb.Page.Talks do
   use Phoenix.Component
 
-  alias BegoWeb.UI.Typo
+  alias BegoWeb.UI.Element
   alias BegoWeb.UI.Layout
+  alias BegoWeb.UI.Typo
 
   def talks(assigns) do
     ~H"""
@@ -48,36 +49,16 @@ defmodule BegoWeb.Page.Talks do
 
   def talk(assigns) do
     ~H"""
-    <section class="space-y-2 bg-slate-50 p-5 rounded-lg drop-shadow-xl">
+    <Element.card>
       <Typo.h2 class="text-xl font-bold text-emerald-900"><%= @title %></Typo.h2>
       At <em><%= @where %></em>
       <%= if assigns[:youtube] do %>
-        <.video>
-          <.youtube url={@youtube} title={@title} />
-        </.video>
+        <Element.video>
+          <Element.youtube url={@youtube} title={@title} />
+        </Element.video>
       <% end %>
       <div><%= render_block(@inner_block) %></div>
-    </section>
-    """
-  end
-
-  defp video(assigns) do
-    ~H"""
-    <div class="rounded-lg aspect-video">
-      <%= render_slot(@inner_block) %>
-    </div>
-    """
-  end
-
-  defp youtube(assigns) do
-    ~H"""
-    <iframe
-      class="h-full w-full"
-      src={"https://www.youtube.com/embed/#{@url}"}
-      title={@title}
-      frameborder="0"
-      allow="accelerometer; gyroscope"
-      allowfullscreen></iframe>
+    </Element.card>
     """
   end
 end

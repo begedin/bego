@@ -5,10 +5,6 @@ defmodule BegoWeb.LayoutView do
   alias BegoWeb.UI.Social
   alias BegoWeb.UI.Typo
 
-  # Phoenix LiveDashboard is available only in development by default,
-  # so we instruct Elixir to not warn if the dashboard route is missing.
-  @compile {:no_warn_undefined, {Routes, :live_dashboard_path, 2}}
-
   def render("root.html", assigns) do
     ~H"""
     <!DOCTYPE html>
@@ -74,8 +70,8 @@ defmodule BegoWeb.LayoutView do
 
   defp header(assigns) do
     ~H"""
-    <header class="bg-slate-100 p-10">
-      <section class="mx-auto grid grid-flow-col auto-cols-auto space-x-10 items-center">
+    <header class="p-10">
+      <section class="mx-auto grid grid-flow-col auto-cols-auto space-x-10 items-center justify-betweeen">
         <h1 class="text-5xl">Bego Solutions</h1>
         <.navigation {assigns}/>
       </section>
@@ -86,16 +82,10 @@ defmodule BegoWeb.LayoutView do
   defp navigation(assigns) do
     ~H"""
     <nav>
-      <ul class="grid grid-flow-col auto-cols-min space-x-5">
+      <ul class="grid grid-flow-col auto-cols-min justify-end space-x-5">
         <li><a href="/">Home</a></li>
         <li><a href="/talks">Talks</a></li>
         <li><a href="/work">Work</a></li>
-        <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-          <li>
-            <% path = Routes.live_dashboard_path(@conn, :home) %>
-            <%= link("LiveDashboard", to: path) %>
-          </li>
-        <% end %>
       </ul>
     </nav>
     """
@@ -103,8 +93,8 @@ defmodule BegoWeb.LayoutView do
 
   defp footer(assigns) do
     ~H"""
-    <footer class="mt-auto bg-slate-100">
-      <section class="container mx-auto py-10 flex flex-row space-x-10 justify-between">
+    <footer class="mt-auto p-10">
+      <section class="space-x-10 grid grid-flow-col auto-cols-auto items-center justify-between">
         <.copyright />
         <div class="grid grid-flow-col space-x-3">
           <Social.github />
@@ -118,7 +108,7 @@ defmodule BegoWeb.LayoutView do
 
   defp copyright(assigns) do
     ~H"""
-    Copyright Bego Rješenja <%= Date.utc_today() |> Map.get(:year) %>
+    <span>Copyright Bego Rješenja <%= Date.utc_today() |> Map.get(:year) %></span>
     """
   end
 end

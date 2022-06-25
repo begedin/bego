@@ -24,4 +24,10 @@ defmodule BegoWeb.UI.Typo do
     <p><%= render_slot(@inner_block) %></p>
     """
   end
+
+  def a(%{href: _} = assigns) do
+    ~H"""
+    <a class="text-sky-600" href={@href}><%= render_slot(@inner_block) %></a>
+    """
+  end
 end
