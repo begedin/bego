@@ -72,7 +72,7 @@ defmodule BegoWeb.LayoutView do
     ~H"""
     <header class="p-10">
       <section class="mx-auto grid grid-flow-col auto-cols-auto space-x-10 items-center justify-betweeen">
-        <h1 class="text-5xl">Bego Solutions</h1>
+        <h1 class="text-5xl"><a href="/">Bego Solutions</a></h1>
         <.navigation {assigns}/>
       </section>
     </header>
@@ -83,7 +83,6 @@ defmodule BegoWeb.LayoutView do
     ~H"""
     <nav>
       <ul class="grid grid-flow-col auto-cols-min justify-end space-x-5">
-        <li><a href="/">Home</a></li>
         <li><a href="/talks">Talks</a></li>
         <li><a href="/work">Work</a></li>
       </ul>
@@ -108,7 +107,9 @@ defmodule BegoWeb.LayoutView do
 
   defp copyright(assigns) do
     ~H"""
-    <span>Copyright Bego Rješenja <%= Date.utc_today() |> Map.get(:year) %></span>
+    <span class="text-sm text-slate-500">
+      Copyright Bego Rješenja <%= Date.utc_today() |> Map.get(:year) %>
+    </span>
     """
   end
 end
