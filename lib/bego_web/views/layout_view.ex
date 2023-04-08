@@ -93,7 +93,7 @@ defmodule BegoWeb.LayoutView do
   defp footer(assigns) do
     ~H"""
     <footer class="mt-auto p-10">
-      <section class="space-x-10 grid grid-flow-col auto-cols-auto items-center justify-between">
+      <section class="space-x-10 flex flex-row items-center justify-between">
         <.copyright />
         <div class="grid grid-flow-col space-x-3">
           <Social.github />
@@ -107,9 +107,18 @@ defmodule BegoWeb.LayoutView do
 
   defp copyright(assigns) do
     ~H"""
-    <span class="text-sm text-slate-500">
-      Copyright Bego Rješenja <%= Date.utc_today() |> Map.get(:year) %>
-    </span>
+    <div class="flex flex-col items-start">
+      <div class="text-sm text-slate-500">
+        Copyright Bego Rješenja <%= Date.utc_today() |> Map.get(:year) %>.
+      </div>
+      <div class="text-sm text-slate-500">
+        Ulica Zrinskih i Frankopana 4, 42000 Varaždin, Croatia.
+      </div>
+      <div class="text-sm text-slate-500">
+        Contact via
+        <Typo.a href="mailto:begedinnikola+bego.dev@gmail.com">email</Typo.a>
+      </div>
+    </div>
     """
   end
 end
