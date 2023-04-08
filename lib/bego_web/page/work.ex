@@ -19,13 +19,14 @@ defmodule BegoWeb.Page.Work do
     <Element.card>
       <Typo.h1>Do you want to work with me?</Typo.h1>
       <Typo.p>
-        Unfortunately for you, but fortunately for me, my available time is
-        already overscheduled.
+        I am currently fully booked, so I'm not looking for new clients at the
+        moment.
       </Typo.p>
       <Typo.p>
-        Feel free to reach out to me for collaboration on things in the Elixir,
-        or Vue commmunity, if you need smaller-volume consulting, etc., but i
-        can't commit to any serious work.
+        However, feel free to
+        <Typo.a href="mailto:begedinnikola+bego.dev@gmail.com">reach out</Typo.a>
+        to me for collaboration on things in the Elixir, or Vue commmunity, as well as for lower
+        volume consulting in the range of a few hours total.
       </Typo.p>
       <Typo.p>
         My socials and contact info are listed in the footer.
@@ -47,7 +48,11 @@ defmodule BegoWeb.Page.Work do
         </.definition>
         <.definition>
           <:term>Development of new software features</:term>
-          <:description>Developing new, previously planned features of your product.</:description>
+          <:description>
+            Developing new, previously planned features of your product, from start to finish.
+            I will advise on technical feasibility and communicate findings at every step of the
+            process. Work can be independent or as part of a team.
+          </:description>
         </.definition>
         <.definition>
           <:term>Performance tuning and code quality improvements</:term>
@@ -72,7 +77,7 @@ defmodule BegoWeb.Page.Work do
 
   defp definition(assigns) do
     ~H"""
-    <dt class="text-gray-500"><%= render_slot(@term) %></dt>
+    <dt class="text-gray-500 text-lg font-medium leading-loose"><%= render_slot(@term) %></dt>
     <dd class="mb-4 last:mb-0"><%= render_slot(@description) %></dd>
     """
   end

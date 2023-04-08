@@ -82,9 +82,9 @@ defmodule BegoWeb.LayoutView do
     ~H"""
     <nav>
       <ul class="flex flex-row justify-end space-x-5">
-        <li><a href="/talks">Talks</a></li>
-        <li><a href="/work">Work</a></li>
-        <li><a href="/oss">Open Source</a></li>
+        <li><a class="hover:underline text-xl" href="/talks">Talks</a></li>
+        <li><a class="hover:underline text-xl" href="/work">Work</a></li>
+        <li><a class="hover:underline text-xl" href="/oss">Open Source</a></li>
       </ul>
     </nav>
     """
