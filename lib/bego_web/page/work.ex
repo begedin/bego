@@ -28,7 +28,23 @@ defmodule BegoWeb.Page.Work do
         can't commit to any serious work.
       </Typo.p>
       <Typo.p>
-        My socials and contact info are listed in the footer.</Typo.p>
+        My socials and contact info are listed in the footer.
+      </Typo.p>
+      <Typo.h2>Pricing</Typo.h2>
+      <Typo.p>
+        My typical hourly rates are negotiable,
+        but <strong class="font-bold">start at $60/hour</strong> or the
+        equivalent in your preferred currency. Daily or per-project rates are
+        also possible.
+      </Typo.p>
+      <Typo.h2>Services</Typo.h2>
+      <ul class="list-disc px-4">
+        <li>Project planning</li>
+        <li>Development of new software features</li>
+        <li>Performance tuning and code quality improvements</li>
+        <li>Test automation</li>
+        <li>Consulting on code architecture</li>
+      </ul>
     </Element.card>
     """
   end
