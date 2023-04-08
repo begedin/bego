@@ -4,6 +4,7 @@ defmodule BegoWeb.PageView do
   use Phoenix.Component
 
   alias BegoWeb.Page.Index
+  alias BegoWeb.Page.OpenSource
   alias BegoWeb.Page.Talks
   alias BegoWeb.Page.Work
 
@@ -17,5 +18,9 @@ defmodule BegoWeb.PageView do
 
   def render("work.html", assigns) do
     Work.work(assigns)
+  end
+
+  def render("open_source.html", assigns) do
+    OpenSource.open_source(assigns)
   end
 end

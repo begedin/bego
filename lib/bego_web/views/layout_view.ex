@@ -10,20 +10,19 @@ defmodule BegoWeb.LayoutView do
     <!DOCTYPE html>
     <html lang="en" class="h-full">
       <head>
-        <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <%= csrf_meta_tag() %>
         <%= assigns |> Map.get(:page_title, "Bego") |> live_title_tag() %>
-        <link
-          phx-track-static
-          rel="stylesheet"
-          href={Routes.static_path(@conn, "/assets/app.css")}/>
+        <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")} />
         <script
           defer
           phx-track-static
           type="text/javascript"
-          src={Routes.static_path(@conn, "/assets/app.js")}></script>
+          src={Routes.static_path(@conn, "/assets/app.js")}
+        >
+        </script>
       </head>
       <body class="flex flex-col h-screen justify-between">
         <.header {assigns} />
@@ -37,13 +36,13 @@ defmodule BegoWeb.LayoutView do
   def render("live.html", assigns) do
     ~H"""
     <.main {assigns}>
-      <Typo.p class="alert alert-info" role="alert"
-        phx-click="lv:clear-flash"
-        phx-value-key="info"><%= live_flash(@flash, :info) %></Typo.p>
+      <Typo.p class="alert alert-info" role="alert" phx-click="lv:clear-flash" phx-value-key="info">
+        <%= live_flash(@flash, :info) %>
+      </Typo.p>
 
-      <Typo.p class="alert alert-danger" role="alert"
-        phx-click="lv:clear-flash"
-        phx-value-key="error"><%= live_flash(@flash, :error) %></Typo.p>
+      <Typo.p class="alert alert-danger" role="alert" phx-click="lv:clear-flash" phx-value-key="error">
+        <%= live_flash(@flash, :error) %>
+      </Typo.p>
 
       <%= @inner_content %>
     </.main>
@@ -71,9 +70,9 @@ defmodule BegoWeb.LayoutView do
   defp header(assigns) do
     ~H"""
     <header class="p-10">
-      <section class="mx-auto grid grid-flow-col auto-cols-auto space-x-10 items-center justify-betweeen">
+      <section class="mx-auto w-4/5 flex flex-row space-x-10 items-center justify-between">
         <h1 class="text-5xl"><a href="/">Bego Solutions</a></h1>
-        <.navigation {assigns}/>
+        <.navigation {assigns} />
       </section>
     </header>
     """
@@ -82,9 +81,10 @@ defmodule BegoWeb.LayoutView do
   defp navigation(assigns) do
     ~H"""
     <nav>
-      <ul class="grid grid-flow-col auto-cols-min justify-end space-x-5">
+      <ul class="flex flex-row justify-end space-x-5">
         <li><a href="/talks">Talks</a></li>
         <li><a href="/work">Work</a></li>
+        <li><a href="/oss">Open Source</a></li>
       </ul>
     </nav>
     """

@@ -12,4 +12,8 @@ defmodule BegoWeb.PageController do
   def work(conn, _params) do
     render(conn, "work.html")
   end
+
+  def open_source(conn, _params) do
+    render(conn, "open_source.html")
+  end
 end
