@@ -38,14 +38,42 @@ defmodule BegoWeb.Page.Work do
         also possible.
       </Typo.p>
       <Typo.h2>Services</Typo.h2>
-      <ul class="list-disc px-4">
-        <li>Project planning</li>
-        <li>Development of new software features</li>
-        <li>Performance tuning and code quality improvements</li>
-        <li>Test automation</li>
-        <li>Consulting on code architecture</li>
-      </ul>
+      <dl>
+        <.definition>
+          <:term>Project planning & leading</:term>
+          <:description>
+            Helping you plan the development of your product or feature from start to finish, from a technical aspect.
+          </:description>
+        </.definition>
+        <.definition>
+          <:term>Development of new software features</:term>
+          <:description>Developing new, previously planned features of your product.</:description>
+        </.definition>
+        <.definition>
+          <:term>Performance tuning and code quality improvements</:term>
+          <:description>
+            Analysing, suggesting and performing improvements to your product and your product's code quality.
+          </:description>
+        </.definition>
+        <.definition>
+          <:term>Test automation</:term>
+          <:description>Adding or improving the existing testing framework of you product</:description>
+        </.definition>
+        <.definition>
+          <:term>Technical consulting</:term>
+          <:description>
+            Advising and training you team on all technical expertise covered by other services I offer
+          </:description>
+        </.definition>
+      </dl>
     </Element.card>
+    """
+  end
+
+  defp definition(assigns) do
+    ~H"""
+    <dt class="text-gray-500"><%= render_slot(@term) %></dt>
+    <dd class="mb-4 last:mb-0"><%= render_slot(@description) %></dd>
     """
   end
 
