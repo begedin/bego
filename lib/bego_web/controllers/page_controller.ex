@@ -12,4 +12,12 @@ defmodule BegoWeb.PageController do
   def work(conn, _params) do
     render(conn, "work.html")
   end
+
+  def posts(conn, _params) do
+    render(conn, "posts.html")
+  end
+
+  def post(conn, %{"post" => "vue3-list-render-performance"}) do
+    render(conn, "vue3_list_render_performance.html")
+  end
 end

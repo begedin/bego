@@ -30,4 +30,12 @@ defmodule BegoWeb.UI.Typo do
     <a class="text-sky-600" href={@href}><%= render_slot(@inner_block) %></a>
     """
   end
+
+  slot(:inner_block, required: true)
+
+  def code(assigns) do
+    ~H"""
+    <span class="font-mono text-red-500"><%= render_slot(@inner_block) %></span>
+    """
+  end
 end

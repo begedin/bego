@@ -4,6 +4,7 @@ defmodule BegoWeb.PageView do
   use Phoenix.Component
 
   alias BegoWeb.Page.Index
+  alias BegoWeb.Page.Posts
   alias BegoWeb.Page.Talks
   alias BegoWeb.Page.Work
 
@@ -17,5 +18,9 @@ defmodule BegoWeb.PageView do
 
   def render("work.html", assigns) do
     Work.work(assigns)
+  end
+
+  def render("vue3_list_render_performance.html", assigns) do
+    Posts.vue_3_list_render_performance(assigns)
   end
 end

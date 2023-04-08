@@ -85,6 +85,7 @@ defmodule BegoWeb.LayoutView do
       <ul class="grid grid-flow-col auto-cols-min justify-end space-x-5">
         <li><a href="/talks">Talks</a></li>
         <li><a href="/work">Work</a></li>
+        <li><a href="/posts/vue3-list-render-performance">Article on Vue 3</a></li>
       </ul>
     </nav>
     """

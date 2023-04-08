@@ -20,6 +20,8 @@ defmodule BegoWeb.Router do
     get "/", PageController, :index
     get "/talks", PageController, :talks
     get "/work", PageController, :work
+    get "/posts/:post", PageController, :post
+    get "/posts", PageController, :posts
   end
 
   # Other scopes may use custom stacks.
