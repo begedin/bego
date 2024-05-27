@@ -32,7 +32,6 @@ defmodule BegoWeb.ConnCase do
   end
 
   setup tags do
-    Bego.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

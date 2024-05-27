@@ -33,7 +33,6 @@ defmodule Bego.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:ecto_sql, "~> 3.11.2"},
       {:esbuild, "~> 0.8.1", runtime: Mix.env() == :dev},
       {:floki, ">= 0.36.2", only: :test},
       {:gettext, "~> 0.24.0"},
@@ -61,10 +60,7 @@ defmodule Bego.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup"],
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      setup: ["deps.get"],
       "assets.deploy": [
         "esbuild default --minify",
         "tailwind default --minify",

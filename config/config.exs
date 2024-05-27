@@ -7,9 +7,6 @@
 # General application configuration
 import Config
 
-config :bego,
-  ecto_repos: [Bego.Repo]
-
 # Configures the endpoint
 config :bego, BegoWeb.Endpoint,
   url: [host: "localhost"],

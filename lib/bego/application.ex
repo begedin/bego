@@ -8,8 +8,6 @@ defmodule Bego.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      Bego.Repo,
       # Start the Telemetry supervisor
       BegoWeb.Telemetry,
       # Start the PubSub system
