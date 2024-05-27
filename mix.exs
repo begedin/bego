@@ -44,7 +44,6 @@ defmodule Bego.MixProject do
       {:phoenix_live_view, "~> 0.20.14"},
       {:phoenix, "~> 1.7.12"},
       {:plug_cowboy, "~> 2.7.1"},
-      {:postgrex, ">= 0.18.0"},
       {:swoosh, "~> 1.16.7"},
       {:tailwind, "~> 0.2.2", runtime: Mix.env() == :dev},
       {:telemetry_metrics, "~> 1.0"},
