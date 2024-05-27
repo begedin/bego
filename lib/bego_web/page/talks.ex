@@ -57,7 +57,7 @@ defmodule BegoWeb.Page.Talks do
           <Element.youtube url={@youtube} title={@title} />
         </Element.video>
       <% end %>
-      <div><%= render_block(@inner_block) %></div>
+      <div><%= render_slot(@inner_block) %></div>
     </Element.card>
     """
   end

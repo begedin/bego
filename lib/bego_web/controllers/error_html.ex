@@ -1,5 +1,5 @@
-defmodule BegoWeb.ErrorView do
-  use BegoWeb, :view
+defmodule BegoWeb.ErrorHTML do
+  use BegoWeb, :html
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

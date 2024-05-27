@@ -1,5 +1,5 @@
-defmodule BegoWeb.LayoutView do
-  use BegoWeb, :view
+defmodule BegoWeb.Layouts do
+  use BegoWeb, :html
   use Phoenix.Component
 
   alias BegoWeb.UI.Social
@@ -13,19 +13,21 @@ defmodule BegoWeb.LayoutView do
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <%= csrf_meta_tag() %>
-        <%= assigns |> Map.get(:page_title, "Bego") |> live_title_tag() %>
-        <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")} />
+        <meta name="csrf-token" content={get_csrf_token()} />
+        <.live_title>
+          <%= assigns[:page_title] || "" %>
+        </.live_title>
+        <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
         <script
           defer
           phx-track-static
           type="text/javascript"
-          src={Routes.static_path(@conn, "/assets/app.js")}
+          src={~p"/assets/app.js"}
         >
         </script>
       </head>
       <body class="flex flex-col h-screen justify-between">
-        <.header {assigns} />
+        <.header_section {assigns} />
         <%= @inner_content %>
         <.footer {assigns} />
       </body>
@@ -52,8 +54,7 @@ defmodule BegoWeb.LayoutView do
   def render("app.html", assigns) do
     ~H"""
     <.main {assigns}>
-      <Typo.p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></Typo.p>
-      <Typo.p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></Typo.p>
+      <.flash_group flash={@flash} />
       <%= @inner_content %>
     </.main>
     """
@@ -67,7 +68,7 @@ defmodule BegoWeb.LayoutView do
     """
   end
 
-  defp header(assigns) do
+  defp header_section(assigns) do
     ~H"""
     <header class="p-10">
       <section class="mx-auto w-4/5 flex flex-row space-x-10 items-center justify-between">
@@ -85,6 +86,8 @@ defmodule BegoWeb.LayoutView do
         <li><a class="hover:underline text-xl" href="/talks">Talks</a></li>
         <li><a class="hover:underline text-xl" href="/work">Work</a></li>
         <li><a class="hover:underline text-xl" href="/oss">Open Source</a></li>
+        <li><a class="hover:underline text-xl" href="https://livepixel.bego.dev">Games</a></li>
+        <li><a class="hover:underline text-xl" href="https://permaplanner.bego.dev">Permaplanner</a></li>
       </ul>
     </nav>
     """

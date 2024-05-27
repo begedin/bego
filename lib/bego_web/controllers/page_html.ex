@@ -1,5 +1,5 @@
-defmodule BegoWeb.PageView do
-  use BegoWeb, :view
+defmodule BegoWeb.PageHTML do
+  use BegoWeb, :html
 
   use Phoenix.Component
 
