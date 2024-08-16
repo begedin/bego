@@ -21,7 +21,7 @@ defmodule BegoWeb.Layouts do
         <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
         </script>
       </head>
-      <body class="flex flex-col h-screen justify-between">
+      <body class="flex flex-col h-screen">
         <.header_section {assigns} />
         <%= @inner_content %>
         <.footer {assigns} />
@@ -47,6 +47,17 @@ defmodule BegoWeb.Layouts do
     """
   end
 
+  def render("blog.html", assigns) do
+    ~H"""
+    <style type="text/css">
+      <%= Makeup.stylesheet(:default_style, "makeup") %>
+    </style>
+    <main class="mx-auto max-w-prose mt-5 mb-5 flex-grow blog-post">
+      <%= @inner_content %>
+    </main>
+    """
+  end
+
   defp main(assigns) do
     ~H"""
     <main class="mx-auto max-w-prose mt-5 mb-5 flex-grow">
@@ -58,8 +69,8 @@ defmodule BegoWeb.Layouts do
   defp header_section(assigns) do
     ~H"""
     <header class="p-10">
-      <section class="mx-auto w-4/5 flex flex-row space-x-10 items-center justify-between">
-        <h1 class="text-5xl"><a href="/">Bego Solutions</a></h1>
+      <section class="mx-auto max-w-prose flex flex-row items-center justify-between gap-8">
+        <h1 class="text-4xl min-w-max"><a href="/">Bego Solutions</a></h1>
         <.navigation {assigns} />
       </section>
     </header>
@@ -69,14 +80,17 @@ defmodule BegoWeb.Layouts do
   defp navigation(assigns) do
     ~H"""
     <nav>
-      <ul class="flex flex-row justify-end space-x-5">
-        <li><a class="hover:underline text-xl" href="/talks">Talks</a></li>
-        <li><a class="hover:underline text-xl" href="/work">Work</a></li>
-        <li><a class="hover:underline text-xl" href="/oss">Open Source</a></li>
-        <li><a class="hover:underline text-xl" href="https://livepixel.bego.dev">Games</a></li>
+      <ul class="flex flex-row flex-wrap justify-end gap-x-5">
+        <li><a class="hover:underline" href="https://livepixel.bego.dev">Games</a></li>
         <li>
-          <a class="hover:underline text-xl" href="https://permaplanner.bego.dev">Permaplanner</a>
+          <a class="hover:underline" href="https://permaplanner.bego.dev">Permaplanner</a>
         </li>
+      </ul>
+      <ul class="flex flex-row flex-wrap justify-end gap-x-5">
+        <li><a class="hover:underline text-lg" href="/oss">Open Source</a></li>
+        <li><a class="hover:underline text-lg" href="/blog">Blog</a></li>
+        <li><a class="hover:underline text-lg" href="/talks">Talks</a></li>
+        <li><a class="hover:underline text-lg" href="/work">Work</a></li>
       </ul>
     </nav>
     """

@@ -33,10 +33,13 @@ defmodule Bego.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:esbuild, "~> 0.8.1", runtime: Mix.env() == :dev},
-      {:floki, ">= 0.36.2", only: :test},
+      {:floki, ">= 0.36.2"},
       {:gettext, "~> 0.25.0"},
       {:jason, "~> 1.4.4"},
+      {:makeup_elixir, "~> 0.16.2"},
+      {:nimble_publisher, "~> 1.1.0"},
       {:phoenix_ecto, "~> 4.6.2"},
       {:phoenix_html, "~> 4.1.1"},
       {:phoenix_live_dashboard, "~> 0.8.4"},

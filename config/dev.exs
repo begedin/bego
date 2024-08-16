@@ -48,9 +48,11 @@ config :bego, BegoWeb.Endpoint,
 config :bego, BegoWeb.Endpoint,
   live_reload: [
     patterns: [
+      ~r"priv/assets/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/bego_web/(live|views|ui|page)/.*(ex)$",
+      ~r"priv/blog/.*(md)$",
+      ~r"lib/bego_web/(live|views|ui|page|controllers|components)/.*(ex)$",
       ~r"lib/bego_web/templates/.*(eex)$"
     ]
   ]
