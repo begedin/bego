@@ -8,13 +8,12 @@ defmodule BegoWeb.Page.Talks do
   def talks(assigns) do
     ~H"""
     <Layout.column_1>
-      <.talk
-        title="Building a Block-Based Editor in PhoenixLiveView"
-        where="ElixirConf EU, London 2022">
+      <.talk title="Building a Block-Based Editor in PhoenixLiveView" where="ElixirConf EU, London 2022">
         <Typo.p><em>Not released yet</em></Typo.p>
         <Typo.p>
           Successes and failures in an attempt to build a block-based editor
-          in PhoenixLiveView</Typo.p>
+          in PhoenixLiveView
+        </Typo.p>
       </.talk>
       <.talk
         title="Doing Weird Things With Ecto"
@@ -23,7 +22,8 @@ defmodule BegoWeb.Page.Talks do
       >
         <Typo.p>
           Talking about unusual things I ended up doing with Ecto during
-          some of my projects</Typo.p>
+          some of my projects
+        </Typo.p>
       </.talk>
       <.talk
         title="Setting up E2E testing with Ecto Sandbox Plug (Workshop)"
@@ -32,7 +32,8 @@ defmodule BegoWeb.Page.Talks do
         <Typo.p><em>Never released</em></Typo.p>
         <Typo.p>
           A workshop following steps similar to ones from prior talk,
-          except this one was follow-along</Typo.p>
+          except this one was follow-along
+        </Typo.p>
       </.talk>
       <.talk
         title="E2E Backend testing with Ecto API"
@@ -41,7 +42,8 @@ defmodule BegoWeb.Page.Talks do
       >
         <Typo.p>
           Step-by-step of how to setup an ecto sandbox for user with external
-          APIs, to power cross-project E2E testing</Typo.p>
+          APIs, to power cross-project E2E testing
+        </Typo.p>
       </.talk>
     </Layout.column_1>
     """

@@ -18,12 +18,7 @@ defmodule BegoWeb.Layouts do
           <%= assigns[:page_title] || "" %>
         </.live_title>
         <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
-        <script
-          defer
-          phx-track-static
-          type="text/javascript"
-          src={~p"/assets/app.js"}
-        >
+        <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
         </script>
       </head>
       <body class="flex flex-col h-screen justify-between">
@@ -38,14 +33,6 @@ defmodule BegoWeb.Layouts do
   def render("live.html", assigns) do
     ~H"""
     <.main {assigns}>
-      <Typo.p class="alert alert-info" role="alert" phx-click="lv:clear-flash" phx-value-key="info">
-        <%= live_flash(@flash, :info) %>
-      </Typo.p>
-
-      <Typo.p class="alert alert-danger" role="alert" phx-click="lv:clear-flash" phx-value-key="error">
-        <%= live_flash(@flash, :error) %>
-      </Typo.p>
-
       <%= @inner_content %>
     </.main>
     """
@@ -87,7 +74,9 @@ defmodule BegoWeb.Layouts do
         <li><a class="hover:underline text-xl" href="/work">Work</a></li>
         <li><a class="hover:underline text-xl" href="/oss">Open Source</a></li>
         <li><a class="hover:underline text-xl" href="https://livepixel.bego.dev">Games</a></li>
-        <li><a class="hover:underline text-xl" href="https://permaplanner.bego.dev">Permaplanner</a></li>
+        <li>
+          <a class="hover:underline text-xl" href="https://permaplanner.bego.dev">Permaplanner</a>
+        </li>
       </ul>
     </nav>
     """

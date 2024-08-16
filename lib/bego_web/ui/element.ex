@@ -8,8 +8,10 @@ defmodule BegoWeb.UI.Element do
         "large" -> "space-y-4"
       end
 
+    assigns = assign(assigns, :spacing, spacing)
+
     ~H"""
-    <section class={"#{spacing} bg-slate-50 p-5 shadow-slate-100 shadow-md"}>
+    <section class={"#{@spacing} bg-slate-50 p-5 shadow-slate-100 shadow-md"}>
       <%= render_slot(@inner_block) %>
     </section>
     """
@@ -31,7 +33,9 @@ defmodule BegoWeb.UI.Element do
       title={@title}
       frameborder="0"
       allow="accelerometer; gyroscope"
-      allowfullscreen></iframe>
+      allowfullscreen
+    >
+    </iframe>
     """
   end
 

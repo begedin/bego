@@ -26,11 +26,12 @@ defmodule BegoWeb.Page.Index do
         </Typo.p>
       </Element.card>
       <Element.card>
-      <Typo.h2>Communication and openness</Typo.h2>
+        <Typo.h2>Communication and openness</Typo.h2>
         <Typo.p>
           For the client, the goal is communication and openness. Things don't
           always go to plan, but you will know how and why, and you will be given
-          options and information you need.</Typo.p>
+          options and information you need.
+        </Typo.p>
       </Element.card>
     </Layout.column_1>
     """

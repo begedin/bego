@@ -35,19 +35,19 @@ defmodule Bego.MixProject do
     [
       {:esbuild, "~> 0.8.1", runtime: Mix.env() == :dev},
       {:floki, ">= 0.36.2", only: :test},
-      {:gettext, "~> 0.24.0"},
-      {:jason, "~> 1.4.1"},
-      {:phoenix_ecto, "~> 4.6.1"},
+      {:gettext, "~> 0.25.0"},
+      {:jason, "~> 1.4.4"},
+      {:phoenix_ecto, "~> 4.6.2"},
       {:phoenix_html, "~> 4.1.1"},
-      {:phoenix_live_dashboard, "~> 0.8.3"},
+      {:phoenix_live_dashboard, "~> 0.8.4"},
       {:phoenix_live_reload, "~> 1.5.3", only: :dev},
-      {:phoenix_live_view, "~> 0.20.14"},
-      {:phoenix, "~> 1.7.12"},
+      {:phoenix_live_view, "~> 0.20.17"},
+      {:phoenix, "~> 1.7.14"},
       {:plug_cowboy, "~> 2.7.1"},
-      {:swoosh, "~> 1.16.7"},
-      {:tailwind, "~> 0.2.2", runtime: Mix.env() == :dev},
+      {:swoosh, "~> 1.16.10"},
+      {:tailwind, "~> 0.2.3", runtime: Mix.env() == :dev},
       {:telemetry_metrics, "~> 1.0"},
-      {:telemetry_poller, "~> 1.1.0"},
+      {:telemetry_poller, "~> 1.1.0"}
     ]
   end
 
