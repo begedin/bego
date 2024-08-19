@@ -21,10 +21,7 @@ defmodule Bego.Application do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Bego.Supervisor]
-    result = Supervisor.start_link(children, opts)
-
-    Makeup.Lexers.TypesscriptLexer.Application.start(:normal, [])
-    result
+    Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
