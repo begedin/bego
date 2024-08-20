@@ -23,6 +23,7 @@ defmodule BegoWeb.Router do
     get "/oss", PageController, :open_source
     get "/blog", BlogController, :index
     get "/blog/tags/:tag", BlogController, :by_tag
+    get "/blog/feed.xml", BlogController, :rss
     get "/blog/:id", BlogController, :show
   end
 

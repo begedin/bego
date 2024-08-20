@@ -18,6 +18,12 @@ defmodule BegoWeb.Layouts do
           <%= assigns[:page_title] || "" %>
         </.live_title>
         <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          title="RSS Feed for bego.dev/blog"
+          href={~p"/blog/feed.xml"}
+        />
         <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
         </script>
       </head>
@@ -87,8 +93,13 @@ defmodule BegoWeb.Layouts do
         </li>
       </ul>
       <ul class="flex flex-row flex-wrap justify-end gap-x-1">
-        <li><a class="hover:underline" href="/oss">Open Source</a></li>
-        <li><a class="hover:underline" href="/blog">Blog</a></li>
+        <li><a class="hover:underline" href="/oss">OSS</a></li>
+        <li>
+          <a class="hover:underline" href="/blog">Blog</a><a
+            class="hover:underline"
+            href="/blog/feed.xml"
+          >(RSS)</a>
+        </li>
         <li><a class="hover:underline" href="/talks">Talks</a></li>
         <li><a class="hover:underline" href="/work">Work</a></li>
       </ul>

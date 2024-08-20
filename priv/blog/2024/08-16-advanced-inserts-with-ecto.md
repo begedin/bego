@@ -64,7 +64,7 @@ In other examples, it often WILL be faster, but not as fast as it could be.
 
 ## Sidenote: Our Scenario at V7
 
-In our scenario, we were recording a metric every 30 seconda and it was 7 fields, across 3 or 4 tables. So the join was more efficient than querying separately for each field, but it was still a very expensive join.
+In our scenario, we were recording a metric every 30 seconds and it was 7 fields, across 3 or 4 tables. So the join was more efficient than querying separately for each field, but it was still a very expensive join.
 
 Eventually, we got to a point where the it could not finish in 30 seconds, resulting in resource starvation and downtime.
 
@@ -89,7 +89,7 @@ Now, it's not always going to be faster. It really all depends on how expensive 
 
 ## _Master_ Solution
 
-Of course, as your system becomes more complex, you just won't be dealing with these kinds of optimisations. Instead, you'll have some caching for these couns within elixir, and simply insert a record using counts in the cache. You'll probably also be recording these metrics in some sort of queue, so that if you get to a point where they get too expensive, you don't end up in downtime.
+Of course, as your system becomes more complex, you just won't be dealing with these kinds of optimisations. Instead, you'll have some caching for these counts within Elixir, and simply insert a record using counts in the cache. You'll probably also be recording these metrics in some sort of queue, so that if you get to a point where they get too expensive, you don't end up in downtime.
 
 
 # Using placeholders in inserts
@@ -104,9 +104,9 @@ Repo.insert_all(Metric, [%{
 }])
 ```
 
-This query only inserts one record, and as part of that, it requires passing in one argument, `Date.today()` from elixir into postgres. That's fine here, but what if we're in a scenario where we're inserting more records?
+This query only inserts one record, and as part of that, it requires passing in one argument, `Date.today()` from Elixir into Postgres. That's fine here, but what if we're in a scenario where we're inserting more records?
 
-For example, we're importing posts from a csv, timestamps being a common example.
+For example, we're importing posts from a CSV, timestamps being a common example.
 
 ```elixir
 now = NaiveDateTime.utc_now

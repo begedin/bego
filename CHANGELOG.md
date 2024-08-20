@@ -4,6 +4,7 @@
 [TWEAK] Add linux swap to fly instance
 [FEATURE] New theme
 [FIX] Various bug and content fixes
+[FEATURE] Add rss
 
 # 2024-08-16
 

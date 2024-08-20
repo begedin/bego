@@ -21,4 +21,12 @@ defmodule BegoWeb.BlogController do
       post -> render(conn, "show.html", post: post)
     end
   end
+
+  def rss(conn, _) do
+    rss = Blog.rss()
+
+    conn
+    |> put_resp_content_type("application/xml")
+    |> send_resp(200, rss)
+  end
 end
