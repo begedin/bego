@@ -29,7 +29,7 @@ The [makeup](https://github.com/elixir-makeup/makeup) base library is part of th
 
 I'll probably be using most of these, but for me to really be happy, I'd need a few more to cover javascript, typscript, css, scss and vue.
 
-So I did some looking around to see what 3rd party addones there are.
+So I did some looking around to see what 3rd party addons there are.
 
 ## Javascript/Typescript
 

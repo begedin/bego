@@ -52,7 +52,7 @@ defmodule BegoWeb.Layouts do
     <style type="text/css">
       <%= Makeup.stylesheet(:default_style, "makeup") %>
     </style>
-    <main class="mx-auto max-w-prose mt-5 mb-5 flex-grow blog-post">
+    <main class="mx-auto max-w-prose my-1.2 flex-grow blog-post">
       <%= @inner_content %>
     </main>
     """
@@ -60,7 +60,7 @@ defmodule BegoWeb.Layouts do
 
   defp main(assigns) do
     ~H"""
-    <main class="mx-auto max-w-prose mt-5 mb-5 flex-grow">
+    <main class="mx-auto max-w-prose my-1.2 flex-grow">
       <%= render_slot(@inner_block) %>
     </main>
     """
@@ -68,9 +68,9 @@ defmodule BegoWeb.Layouts do
 
   defp header_section(assigns) do
     ~H"""
-    <header class="p-10">
-      <section class="mx-auto max-w-prose flex flex-row items-center justify-between gap-8">
-        <h1 class="text-4xl min-w-max"><a href="/">Bego Solutions</a></h1>
+    <header class="px-2 py-2.4">
+      <section class="mx-auto max-w-prose flex flex-row items-center justify-between gap-1">
+        <h1 class="text-lg min-w-max"><a href="/">Bego Solutions</a></h1>
         <.navigation {assigns} />
       </section>
     </header>
@@ -80,17 +80,17 @@ defmodule BegoWeb.Layouts do
   defp navigation(assigns) do
     ~H"""
     <nav>
-      <ul class="flex flex-row flex-wrap justify-end gap-x-5">
+      <ul class="flex flex-row flex-wrap justify-end gap-x-1">
         <li><a class="hover:underline" href="https://livepixel.bego.dev">Games</a></li>
         <li>
           <a class="hover:underline" href="https://permaplanner.bego.dev">Permaplanner</a>
         </li>
       </ul>
-      <ul class="flex flex-row flex-wrap justify-end gap-x-5">
-        <li><a class="hover:underline text-lg" href="/oss">Open Source</a></li>
-        <li><a class="hover:underline text-lg" href="/blog">Blog</a></li>
-        <li><a class="hover:underline text-lg" href="/talks">Talks</a></li>
-        <li><a class="hover:underline text-lg" href="/work">Work</a></li>
+      <ul class="flex flex-row flex-wrap justify-end gap-x-1">
+        <li><a class="hover:underline" href="/oss">Open Source</a></li>
+        <li><a class="hover:underline" href="/blog">Blog</a></li>
+        <li><a class="hover:underline" href="/talks">Talks</a></li>
+        <li><a class="hover:underline" href="/work">Work</a></li>
       </ul>
     </nav>
     """
@@ -98,10 +98,10 @@ defmodule BegoWeb.Layouts do
 
   defp footer(assigns) do
     ~H"""
-    <footer class="mt-auto p-10">
-      <section class="space-x-10 flex flex-row items-center justify-between">
+    <footer class="h-5 px-2 py-2.4">
+      <section class="px-1 py-1.2 flex flex-row items-center justify-between">
         <.copyright />
-        <div class="grid grid-flow-col space-x-3">
+        <div class="grid grid-flow-col gap-x-2 gap-y-2.4">
           <Social.github />
           <Social.twitter />
           <Social.linkedin />
@@ -114,13 +114,13 @@ defmodule BegoWeb.Layouts do
   defp copyright(assigns) do
     ~H"""
     <div class="flex flex-col items-start">
-      <div class="text-sm text-slate-500">
+      <div class="text-md text-slate-500">
         Copyright Bego Rješenja <%= Date.utc_today() |> Map.get(:year) %>.
       </div>
-      <div class="text-sm text-slate-500">
+      <div class="text-md text-slate-500">
         Ulica Zrinskih i Frankopana 4, 42000 Varaždin, Croatia.
       </div>
-      <div class="text-sm text-slate-500">
+      <div class="text-md text-slate-500">
         Contact via
         <Typo.a href="mailto:begedinnikola+bego.dev@gmail.com">email</Typo.a>
       </div>

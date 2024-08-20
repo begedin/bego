@@ -7,7 +7,7 @@
 ---
 # The basic overview
 
-This website, not including the external links to my [games showcase](https://livepixel.bego.dev) and my [Permaplanner side project](permaplanner.bego.dev) is a simple phoenix application, using plain static HTML, tailwind and esbuild.
+This website, not including the external links to my [games showcase](https://livepixel.bego.dev) and my [Permaplanner side project](https://permaplanner.bego.dev) is a simple phoenix application, using plain static HTML, tailwind and esbuild.
 
 [NimblePublisher](https://github.com/dashbitco/nimble_publisher) is an extremely lighweight elixir library that allows you to write blog posts as markdown files. This is great because, while they are files in your repository, they do not actually require disk storage when deployed to prod. Rather, the way the html is generated from markdown makes the articles part of compilation process and thus part of the code that's running your app.
 
@@ -113,7 +113,7 @@ defmodule BegoWeb.BlogHTML do
     <ul class="w-full">
       <li :for={post <- @posts} class="flex flex-col justify-start">
         <article class="flex flex-col">
-          <h1 class="font-bold text-4xl">
+          <h1 class="font-bold text-lg">
             <a class="text-blue-900 visited:text-blue-800" href={~p"/blog/#{post.id}"}>
               <%= post.title %>
             </a>
@@ -128,7 +128,7 @@ defmodule BegoWeb.BlogHTML do
 
   def render("show.html", assigns) do
     ~H"""
-    <h1 class="font-bold text-5xl pb-8"><%= @post.title %></h1>
+    <h1 class="font-bold text-lg pb-8"><%= @post.title %></h1>
     <article class="post">
       <%= Phoenix.HTML.raw(@post.body) %>
     </article>
@@ -150,11 +150,11 @@ What I can do, is use tailwind's `@apply` statement to get plain html treated as
 
 
 .post h1 {
-  @apply py-2 font-sans text-2xl font-bold;
+  @apply py-2 font-sans text-lg font-bold;
 }
 
 .post h2 {
-  @apply py-2 font-sans text-xl font-bold;
+  @apply py-2 font-sans text-lg font-bold;
 }
 
 .post h3 {

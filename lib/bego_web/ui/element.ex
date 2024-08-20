@@ -4,14 +4,14 @@ defmodule BegoWeb.UI.Element do
   def card(assigns) do
     spacing =
       case Map.get(assigns, :spacing, "medium") do
-        "medium" -> "space-y-2"
-        "large" -> "space-y-4"
+        "medium" -> "space-y-1.2"
+        "large" -> "space-y-2.4"
       end
 
     assigns = assign(assigns, :spacing, spacing)
 
     ~H"""
-    <section class={"#{@spacing} bg-slate-50 p-5 shadow-slate-100 shadow-md"}>
+    <section class={"#{@spacing} py-1.2"}>
       <%= render_slot(@inner_block) %>
     </section>
     """
@@ -28,7 +28,7 @@ defmodule BegoWeb.UI.Element do
   def youtube(%{url: _, title: _} = assigns) do
     ~H"""
     <iframe
-      class="h-full w-full"
+      class="h-[22.8rem] w-full"
       src={"https://www.youtube.com/embed/#{@url}"}
       title={@title}
       frameborder="0"

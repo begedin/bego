@@ -3,14 +3,30 @@
 @import "tailwindcss/utilities";
 
 @layer base {
+  html {
+    font-size: 16px;
+    font-family: monospace;
+  }
+
+  body {
+    font-size: 1rem;
+    line-height: 1.2rem;
+    background-size: 1rem 1.2rem;
+    background-image: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.15) 0.05rem,
+        transparent 0px
+      ),
+      linear-gradient(rgba(0, 0, 0, 0.15) 0.05rem, transparent 0px);
+  }
   /* This file is for your main application CSS */
 
   /* Alerts and form errors used by phx.new */
   .alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 4/3rem;
+    border: 0.05rem solid transparent;
+    border-radius: 0.2rem;
   }
   .alert-info {
     color: #31708f;
@@ -69,15 +85,15 @@
   .phx-modal-content {
     background-color: #fefefe;
     margin: 15vh auto;
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 4/3rem;
+    border: 0.05rem solid #888;
     width: 80%;
   }
 
   .phx-modal-close {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: bold;
   }
 
@@ -146,20 +162,25 @@
 
 /* theme for blog */
 
-.post h1 {
-  @apply pt-4 pb-2  text-emerald-900 font-sans text-2xl font-bold;
+.post .makeup {
+  @apply bg-transparent;
 }
 
-.post h2 {
-  @apply pt-4 pb-2  text-emerald-900 font-sans text-xl font-bold;
-}
-
-.post h3 {
-  @apply pt-4 pb-2 text-emerald-900 font-sans text-lg font-bold;
-}
-
+.post h1,
+.post h2,
+.post h3,
 .post p {
-  @apply py-4 overflow-auto;
+  @apply py-1.2 px-0;
+}
+
+.post pre {
+  @apply py-1.2 px-1 -mx-1;
+}
+
+.post h1,
+.post h2,
+.post h3 {
+  @apply text-emerald-900 text-lg font-bold;
 }
 
 .post a {
@@ -167,15 +188,15 @@
 }
 
 .post pre {
-  @apply p-4 bg-gray-100 rounded-lg overflow-auto;
+  @apply bg-gray-600/20 rounded-lg overflow-auto;
 }
 
 .post pre code {
-  @apply font-mono text-slate-700 w-full overflow-auto;
+  @apply text-slate-700 w-full overflow-auto;
 }
 
 .post code.inline {
-  @apply font-mono text-orange-700;
+  @apply text-orange-700;
 }
 
 .post code.markdown {
@@ -183,5 +204,5 @@
 }
 
 .post ul {
-  @apply p-4 pt-0 list-disc list-inside;
+  @apply py-1.2 pl-1 pt-0 list-disc list-inside;
 }

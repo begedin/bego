@@ -3,7 +3,7 @@ defmodule BegoWeb.UI.Typo do
 
   def h1(assigns) do
     ~H"""
-    <h1 class="text-2xl font-bold text-emerald-900">
+    <h1 class="text-lg font-bold text-emerald-900">
       <%= render_slot(@inner_block) %>
     </h1>
     """
@@ -11,7 +11,7 @@ defmodule BegoWeb.UI.Typo do
 
   def h2(assigns) do
     ~H"""
-    <h2 class="text-xl font-bold text-emerald-800"><%= render_slot(@inner_block) %></h2>
+    <h2 class="text-md font-bold text-emerald-800 uppercase"><%= render_slot(@inner_block) %></h2>
     """
   end
 

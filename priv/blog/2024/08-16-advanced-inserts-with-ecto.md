@@ -58,7 +58,7 @@ source =
 Repo.insert_all(Metric, source)
 ```
 
-Ok, so now it's just a single trip to the database, but I can aknist guarantee in this basic example, it's overall slower.
+Ok, so now it's just a single trip to the database, but I can almost guarantee in this basic example, it's overall slower.
 
 In other examples, it often WILL be faster, but not as fast as it could be.
 
@@ -115,7 +115,12 @@ post_data =
   |> Enum.map(&String.split(&1, "\n"))
   |> Enum.map(&String.split(&1, ","))
   |> Enum.map(fn [title, body] -> 
-    %{title: title, body: body, inserted_at: now, updated_at: now} 
+    %{
+      title: title, 
+      body: body, 
+      inserted_at: now, 
+      updated_at: now
+    } 
   end)
 
 Repo.insert_all(post, post_data)

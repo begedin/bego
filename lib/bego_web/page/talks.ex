@@ -52,8 +52,8 @@ defmodule BegoWeb.Page.Talks do
   def talk(assigns) do
     ~H"""
     <Element.card>
-      <Typo.h2 class="text-xl font-bold text-emerald-900"><%= @title %></Typo.h2>
-      At <em><%= @where %></em>
+      <Typo.h2 class="text-lg font-bold text-emerald-900"><%= @title %></Typo.h2>
+      <p>At <em><%= @where %></em></p>
       <%= if assigns[:youtube] do %>
         <Element.video>
           <Element.youtube url={@youtube} title={@title} />

@@ -2,6 +2,8 @@
 
 [FEATURE] Switch to `makeup_ts` and write article on it
 [TWEAK] Add linux swap to fly instance
+[FEATURE] New theme
+[FIX] Various bug and content fixes
 
 # 2024-08-16
 
