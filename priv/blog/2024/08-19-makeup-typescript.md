@@ -101,8 +101,22 @@ const generic = <T extends number>(a: T): number => a * 5
  */
 ```
 
-It required a bit of tweaking and cleanup of the original .ex file for makeup_js, so now that I have milestone 0 going, I'm gonna point out the diffes on the fork.
+It required a bit of tweaking and cleanup of the original .ex file for makeup_js, but it __works__ so milestone 0 is done.
 
-This post will be updated as soon as this is merged and deployed.
+# Milestone 1: Make a fork
 
+The next step is to make this an external library, so that's exactly what I did.
 
+I forked [makeup_js](https://github.com/maartenvanvliet/makeup_js), renamed it to `makeup_ts` and it's now available on [github](https://github.com/begedin/makeup_ts).
+
+I also went ahead and published the package on hexdocs at [packages/makeup_ts](https://hex.pm/packages/makeup_ts).
+
+It's rudimentary, but it's something to start with at least.
+
+# Milestone 2: Use it, tweak it, work on it
+
+I have working typescript code higlighing in my blog now, so I'm happy. 
+
+The next step for me here is to use it to write more articles, tweak it when I encounter issues and make it faster/better as I go.
+
+For example, with `makeup`, `makeup_elixir` and `makeup_ts` attached to my repo, I seem to get a memory usage spike as the app starts up, so I was forced to add swap to my 256mb fly.io instance to get around it. There's probably something in `makeup_ts` causing it.

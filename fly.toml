@@ -6,6 +6,7 @@ primary_region = 'cdg'
 kill_signal = "SIGTERM"
 kill_timeout = 5
 processes = []
+swap_size_mb = 512
 
 [env]
   PHX_HOST = "bego.fly.dev"

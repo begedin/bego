@@ -7,6 +7,18 @@ defmodule Bego.Blog do
 
   @posts Enum.sort_by(@posts, & &1.date, {:desc, Date})
 
+  @spec list_posts() :: [
+          %Bego.Blog.Post{
+            author: <<_::112>>,
+            body: <<_::64, _::_*8>>,
+            date: Date.t(),
+            description: <<_::64, _::_*8>>,
+            id: <<_::64, _::_*8>>,
+            tags: [<<_::32, _::_*8>>, ...],
+            title: <<_::128, _::_*16>>
+          },
+          ...
+        ]
   def list_posts() do
     @posts
   end
