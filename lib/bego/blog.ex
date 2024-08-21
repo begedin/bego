@@ -3,7 +3,7 @@ defmodule Bego.Blog do
     build: Bego.Blog.Post,
     from: Application.app_dir(:bego, "priv/blog/**/*.md"),
     as: :posts,
-    highlighters: [:makeup_elixir, :makeup_ts]
+    highlighters: [:makeup_elixir, :makeup_ts, :makeup_css]
 
   @posts Enum.sort_by(@posts, & &1.date, {:desc, Date})
 

@@ -4,7 +4,7 @@ defmodule Bego.MixProject do
   def project do
     [
       app: :bego,
-      version: "0.5.2",
+      version: "0.6.2",
       elixir: "~> 1.17",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: Mix.compilers(),
@@ -40,6 +40,7 @@ defmodule Bego.MixProject do
       {:jason, "~> 1.4.4"},
       {:makeup_elixir, "~> 0.16.2"},
       {:makeup_ts, "~>0.2"},
+      {:makeup_css, "~>0.2"},
       {:nimble_publisher, "~> 1.1.0"},
       {:phoenix_ecto, "~> 4.6.2"},
       {:phoenix_html, "~> 4.1.1"},
