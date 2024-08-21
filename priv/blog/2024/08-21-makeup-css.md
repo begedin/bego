@@ -28,9 +28,12 @@ A lexer is effectively a 2-pass thing that first uses the NimbleParsec combinato
 Combinators are affectively declared patters for your code. For example, css [at-rules]() are a list of reserved words, all starting with an `@`, so you end up with something like:
 
 ```elixir
-at_rule_combinator = concat(# a chain
-  string("@"), # starting with @
-  ascii_string([?a..?z, ?-], min: 1) # followed by anything kebap-case
+# a chain
+at_rule_combinator = concat(
+  # starting with @
+  string("@"), 
+  # followed by anything kebap-case
+  ascii_string([?a..?z, ?-], min: 1) 
 ) 
 ```
 
