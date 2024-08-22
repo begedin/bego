@@ -1,6 +1,7 @@
 ## 0.6.2 
 
 - [POST][2024-08-21] Blog post on makeup_css
+- [TWEAK][2024-08-21] Responsive design
 
 ## 2024-08-20
 

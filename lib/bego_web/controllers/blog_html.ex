@@ -26,10 +26,10 @@ defmodule BegoWeb.BlogHTML do
     <div class="flex flex-col gap-y-1.2">
       <h1 class="font-bold text-lg pb-1.2  text-emerald-900"><%= @post.title %></h1>
 
-      <div class="flex flex-row gap-x-1">
+      <div class="flex flex-row flex-wrap">
         <a
           :for={tag <- @post.tags}
-          class="px-1 py-1.2 bg-slate-200 rounded-md gap-x-1 gap-y-1.2 text-blue-900 visited:text-blue-800"
+          class="px-[0.5ch] mx-[0.5ch] py-[0.6em] my-[0.6em] bg-sky-400/25 outline outline-sky-600/75 rounded-md text-blue-900 visited:text-blue-800"
           href={~p"/blog/tags/#{tag}"}
         >
           <%= tag %>

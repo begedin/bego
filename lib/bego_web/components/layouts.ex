@@ -12,7 +12,7 @@ defmodule BegoWeb.Layouts do
       <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content={get_csrf_token()} />
         <.live_title>
           <%= assigns[:page_title] || "" %>
@@ -58,7 +58,7 @@ defmodule BegoWeb.Layouts do
     <style type="text/css">
       <%= Makeup.stylesheet(:default_style, "makeup") %>
     </style>
-    <main class="mx-auto max-w-prose my-1.2 flex-grow blog-post">
+    <main class="my-1.2 flex-grow blog-post">
       <%= @inner_content %>
     </main>
     """
@@ -66,7 +66,7 @@ defmodule BegoWeb.Layouts do
 
   defp main(assigns) do
     ~H"""
-    <main class="mx-auto max-w-prose my-1.2 flex-grow">
+    <main class="my-1.2 flex-grow">
       <%= render_slot(@inner_block) %>
     </main>
     """
@@ -74,8 +74,8 @@ defmodule BegoWeb.Layouts do
 
   defp header_section(assigns) do
     ~H"""
-    <header class="px-2 py-2.4">
-      <section class="mx-auto max-w-prose flex flex-row items-center justify-between gap-1">
+    <header class="py-2.4">
+      <section class="flex flex-col md:flex-row items-start md:justify-between gap-x-1 gap-y-1.2">
         <h1 class="text-lg min-w-max"><a href="/">Bego Solutions</a></h1>
         <.navigation {assigns} />
       </section>
@@ -86,13 +86,13 @@ defmodule BegoWeb.Layouts do
   defp navigation(assigns) do
     ~H"""
     <nav>
-      <ul class="flex flex-row flex-wrap justify-end gap-x-1">
+      <ul class="flex flex-col items-start md:flex-row flex-wrap justify-center md:justify-end gap-x-1">
         <li><a class="hover:underline" href="https://livepixel.bego.dev">Games</a></li>
         <li>
           <a class="hover:underline" href="https://permaplanner.bego.dev">Permaplanner</a>
         </li>
       </ul>
-      <ul class="flex flex-row flex-wrap justify-end gap-x-1">
+      <ul class="flex flex-col items-start md:flex-row flex-wrap justify-center md:justify-end gap-x-1">
         <li><a class="hover:underline" href="/oss">OSS</a></li>
         <li>
           <a class="hover:underline" href="/blog">Blog</a><a
@@ -109,8 +109,8 @@ defmodule BegoWeb.Layouts do
 
   defp footer(assigns) do
     ~H"""
-    <footer class="h-5 px-2 py-2.4">
-      <section class="px-1 py-1.2 flex flex-row items-center justify-between">
+    <footer class="h-5 py-2.4">
+      <section class="py-1.2 flex flex-col gap-y-1.2 md:flex-row items-start md:items-center justify-between">
         <.copyright />
         <div class="grid grid-flow-col gap-x-2 gap-y-2.4">
           <Social.github />

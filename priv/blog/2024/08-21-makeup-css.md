@@ -1,5 +1,5 @@
 %{
-    title: "Creating makeup_css to highlight css",
+    title: "Creating makeup_css",
     tags: ~w(css nimble_publisher makeup nimble_parsec makeup_css),
     description: "Overview of first steps towards a CSS lexer for makeup",
     author: "@begedinnikola",

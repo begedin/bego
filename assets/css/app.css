@@ -6,12 +6,14 @@
   html {
     font-size: 16px;
     font-family: monospace;
+    @apply w-full h-full;
   }
 
   body {
-    font-size: 1rem;
-    line-height: 1.2rem;
-    background-size: 1rem 1.2rem;
+    @apply w-full text-md my-1.2;
+    @apply max-w-[40ch] sm:max-w-[60ch] md:max-w-[80ch];
+    @apply mx-3 sm:mx-5 md:mx-[10ch] lg:mx-[16ch];
+    background-size: 1ch 1.2rem;
     background-image: linear-gradient(
         90deg,
         rgba(0, 0, 0, 0.15) 0.05rem,
@@ -19,6 +21,7 @@
       ),
       linear-gradient(rgba(0, 0, 0, 0.15) 0.05rem, transparent 0px);
   }
+
   /* This file is for your main application CSS */
 
   /* Alerts and form errors used by phx.new */

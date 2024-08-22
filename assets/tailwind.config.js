@@ -11,17 +11,24 @@ module.exports = {
     },
     spacing: {
       0: "0",
-      1: "1rem",
+      1: "1ch",
       1.2: "1.2rem",
-      2: "2rem",
+      2: "2ch",
       2.4: "2.4rem",
-      3: "3rem",
+      3: "3ch",
       3.6: "3.6rem",
-      4: "4rem",
+      4: "4ch",
       4.8: "4.8rem",
-      5: "5rem",
-      6: "6rem",
+      5: "5ch",
+      6: "rem",
     },
+    media: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      '2xl': "1536px"
+    }
   },
   plugins: [require("@tailwindcss/forms")],
 };

@@ -52,7 +52,7 @@ config :bego, BegoWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"priv/blog/.*(md)$",
-      ~r"lib/bego_web/(live|views|ui|page|controllers|components)/.*(ex)$",
+      ~r"lib/bego_web/(live|ui|page|controllers|components)/.*(ex)$",
       ~r"lib/bego_web/templates/.*(eex)$"
     ]
   ]
