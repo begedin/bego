@@ -233,5 +233,5 @@
 }
 
 .post ul {
-  @apply py-1line pl-1 pt-0 list-disc list-inside;
+  @apply py-1line pl-2 pt-0 list-[square];
 }
