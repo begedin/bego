@@ -62,7 +62,7 @@ defmodule BegoWeb.CoreComponents do
         tabindex="0"
       >
         <div class="flex min-h-full items-center justify-center">
-          <div class="w-full max-w-3xl p-4 sm:p-6 lg:py-8">
+          <div class="w-full max-w-3xl p-4 sm:p-5lines lg:py-8">
             <.focus_wrap
               id={"#{@id}-container"}
               phx-mounted={@show && show_modal(@id)}
@@ -71,7 +71,7 @@ defmodule BegoWeb.CoreComponents do
               phx-click-away={hide_modal(@on_cancel, @id)}
               class="hidden relative rounded-xl bg-white p-14 shadow-lg shadow-zinc-700/10 ring-1 ring-zinc-700/10 transition"
             >
-              <div class="absolute top-6 right-5">
+              <div class="absolute top-5lines right-5">
                 <button
                   phx-click={hide_modal(@on_cancel, @id)}
                   type="button"
@@ -89,13 +89,16 @@ defmodule BegoWeb.CoreComponents do
                   <p
                     :if={@subtitle != []}
                     id={"#{@id}-description"}
-                    class="mt-2 text-sm leading-6 text-zinc-600"
+                    class="mt-2 text-sm leading-5lines text-zinc-600"
                   >
                     <%= render_slot(@subtitle) %>
                   </p>
                 </header>
                 <%= render_slot(@inner_block) %>
-                <div :if={@confirm != [] or @cancel != []} class="ml-2 mb-2.4 flex items-center gap-5">
+                <div
+                  :if={@confirm != [] or @cancel != []}
+                  class="ml-2 mb-2lines flex items-center gap-5"
+                >
                   <.button
                     :for={confirm <- @confirm}
                     id={"#{@id}-confirm"}
@@ -108,7 +111,7 @@ defmodule BegoWeb.CoreComponents do
                   <.link
                     :for={cancel <- @cancel}
                     phx-click={hide_modal(@on_cancel, @id)}
-                    class="text-sm font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
+                    class="text-sm font-semibold leading-5lines text-zinc-900 hover:text-zinc-700"
                   >
                     <%= render_slot(cancel) %>
                   </.link>
@@ -155,7 +158,7 @@ defmodule BegoWeb.CoreComponents do
       ]}
       {@rest}
     >
-      <p :if={@title} class="flex items-center gap-1.5 text-[0.8125rem] font-semibold leading-6">
+      <p :if={@title} class="flex items-center gap-1.5 text-[0.8125rem] font-semibold leading-5lines">
         <.icon :if={@kind == :info} name="hero-information-circle-mini" class="w-4 h-4" />
         <.icon :if={@kind == :error} name="hero-exclamation-circle-mini" class="w-4 h-4" />
         <%= @title %>
@@ -221,9 +224,9 @@ defmodule BegoWeb.CoreComponents do
   def simple_form(assigns) do
     ~H"""
     <.form :let={f} for={@for} as={@as} {@rest}>
-      <div class="space-y-2.4 bg-white mt-2.4">
+      <div class="space-y-2lines bg-white mt-2lines">
         <%= render_slot(@inner_block, f) %>
-        <div :for={action <- @actions} class="mt-2 flex items-center justify-between gap-6">
+        <div :for={action <- @actions} class="mt-2 flex items-center justify-between gap-5lines">
           <%= render_slot(action, f) %>
         </div>
       </div>
@@ -251,7 +254,7 @@ defmodule BegoWeb.CoreComponents do
       type={@type}
       class={[
         "phx-submit-loading:opacity-75 rounded-lg bg-zinc-900 hover:bg-zinc-700 p-1",
-        "text-sm font-semibold leading-6 text-white active:text-white/80",
+        "text-sm font-semibold leading-5lines text-white active:text-white/80",
         @class
       ]}
       {@rest}
@@ -310,7 +313,7 @@ defmodule BegoWeb.CoreComponents do
 
     ~H"""
     <div phx-feedback-for={@name}>
-      <label class="flex items-center gap-4 text-sm leading-6 text-zinc-600">
+      <label class="flex items-center gap-4 text-sm leading-5lines text-zinc-600">
         <input type="hidden" name={@name} value="false" />
         <input
           type="checkbox"
@@ -356,7 +359,7 @@ defmodule BegoWeb.CoreComponents do
         name={@name}
         class={[
           "mt-2 block min-h-[6rem] w-full rounded-lg border-zinc-300 p-1",
-          "text-zinc-900 focus:border-zinc-400 focus:outline-none focus:ring-4 focus:ring-zinc-800/5 sm:text-sm sm:leading-6",
+          "text-zinc-900 focus:border-zinc-400 focus:outline-none focus:ring-4 focus:ring-zinc-800/5 sm:text-sm sm:leading-5lines",
           "phx-no-feedback:border-zinc-300 phx-no-feedback:focus:border-zinc-400 phx-no-feedback:focus:ring-zinc-800/5",
           "border-zinc-300 focus:border-zinc-400 focus:ring-zinc-800/5",
           @errors != [] && "border-rose-400 focus:border-rose-400 focus:ring-rose-400/10"
@@ -379,7 +382,7 @@ defmodule BegoWeb.CoreComponents do
         value={HTML.Form.normalize_value(@type, @value)}
         class={[
           "mt-2 block w-full rounded-lg border-zinc-300 p-1",
-          "text-zinc-900 focus:outline-none focus:ring-4 sm:text-sm sm:leading-6",
+          "text-zinc-900 focus:outline-none focus:ring-4 sm:text-sm sm:leading-5lines",
           "phx-no-feedback:border-zinc-300 phx-no-feedback:focus:border-zinc-400 phx-no-feedback:focus:ring-zinc-800/5",
           "border-zinc-300 focus:border-zinc-400 focus:ring-zinc-800/5",
           @errors != [] && "border-rose-400 focus:border-rose-400 focus:ring-rose-400/10"
@@ -399,7 +402,7 @@ defmodule BegoWeb.CoreComponents do
 
   def label(assigns) do
     ~H"""
-    <label for={@for} class="block text-sm font-semibold leading-6 text-zinc-800">
+    <label for={@for} class="block text-sm font-semibold leading-5lines text-zinc-800">
       <%= render_slot(@inner_block) %>
     </label>
     """
@@ -412,7 +415,7 @@ defmodule BegoWeb.CoreComponents do
 
   def error(assigns) do
     ~H"""
-    <p class="phx-no-feedback:hidden mt-3 flex gap-3 text-sm leading-6 text-rose-600">
+    <p class="phx-no-feedback:hidden mt-3 flex gap-3 text-sm leading-5lines text-rose-600">
       <.icon name="hero-exclamation-circle-mini" class="mt-0.5 w-5 h-5 flex-none" />
       <%= render_slot(@inner_block) %>
     </p>
@@ -430,12 +433,12 @@ defmodule BegoWeb.CoreComponents do
 
   def header(assigns) do
     ~H"""
-    <header class={[@actions != [] && "flex items-center justify-between gap-6", @class]}>
+    <header class={[@actions != [] && "flex items-center justify-between gap-5lines", @class]}>
       <div>
         <h1 class="text-lg font-semibold leading-8 text-zinc-800">
           <%= render_slot(@inner_block) %>
         </h1>
-        <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-zinc-600">
+        <p :if={@subtitle != []} class="mt-2 text-sm leading-5lines text-zinc-600">
           <%= render_slot(@subtitle) %>
         </p>
       </div>
@@ -478,16 +481,16 @@ defmodule BegoWeb.CoreComponents do
     ~H"""
     <div class="overflow-y-auto p-1 sm:overflow-visible">
       <table class="mt-11 w-[40rem] sm:w-full">
-        <thead class="text-left text-[0.8125rem] leading-6 text-zinc-500">
+        <thead class="text-left text-[0.8125rem] leading-5lines text-zinc-500">
           <tr>
-            <th :for={col <- @col} class="p-0 pb-4 pr-6 font-normal"><%= col[:label] %></th>
+            <th :for={col <- @col} class="p-0 pb-4 pr-5lines font-normal"><%= col[:label] %></th>
             <th class="relative p-0 pb-4"><span class="sr-only">Actions</span></th>
           </tr>
         </thead>
         <tbody
           id={@id}
           phx-update={match?(%Phoenix.LiveView.LiveStream{}, @rows) && "stream"}
-          class="relative divide-y divide-zinc-100 border-t border-zinc-200 text-sm leading-6 text-zinc-700"
+          class="relative divide-y divide-zinc-100 border-t border-zinc-200 text-sm leading-5lines text-zinc-700"
         >
           <tr :for={row <- @rows} id={@row_id && @row_id.(row)} class="group hover:bg-zinc-50">
             <td
@@ -507,7 +510,7 @@ defmodule BegoWeb.CoreComponents do
                 <span class="absolute -inset-y-px -right-4 left-0 group-hover:bg-zinc-50 sm:rounded-r-xl" />
                 <span
                   :for={action <- @action}
-                  class="relative ml-4 font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
+                  class="relative ml-4 font-semibold leading-5lines text-zinc-900 hover:text-zinc-700"
                 >
                   <%= render_slot(action, @row_item.(row)) %>
                 </span>
@@ -539,8 +542,8 @@ defmodule BegoWeb.CoreComponents do
     <div class="m-1">
       <dl class="-my-1 divide-y divide-zinc-100">
         <div :for={item <- @item} class="flex gap-1 py-1 sm:gap-0">
-          <dt class="w-1/4 flex-none leading-6 text-zinc-500"><%= item.title %></dt>
-          <dd class="text-sm leading-6 text-zinc-700"><%= render_slot(item) %></dd>
+          <dt class="w-1/4 flex-none leading-5lines text-zinc-500"><%= item.title %></dt>
+          <dd class="text-sm leading-5lines text-zinc-700"><%= render_slot(item) %></dd>
         </div>
       </dl>
     </div>
@@ -562,7 +565,7 @@ defmodule BegoWeb.CoreComponents do
     <div class="mt-16">
       <.link
         navigate={@navigate}
-        class="text-sm font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
+        class="text-sm font-semibold leading-5lines text-zinc-900 hover:text-zinc-700"
       >
         <.icon name="hero-arrow-left-solid" class="w-3 h-3" />
         <%= render_slot(@inner_block) %>

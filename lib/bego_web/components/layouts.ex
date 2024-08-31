@@ -58,7 +58,7 @@ defmodule BegoWeb.Layouts do
     <style type="text/css">
       <%= Makeup.stylesheet(:default_style, "makeup") %>
     </style>
-    <main class="my-1.2 blog-post">
+    <main class="my-1line blog-post">
       <%= @inner_content %>
     </main>
     """
@@ -66,7 +66,7 @@ defmodule BegoWeb.Layouts do
 
   defp main(assigns) do
     ~H"""
-    <main class="my-1.2">
+    <main class="my-1line">
       <%= render_slot(@inner_block) %>
     </main>
     """
@@ -74,8 +74,8 @@ defmodule BegoWeb.Layouts do
 
   defp header_section(assigns) do
     ~H"""
-    <header class="py-2.4">
-      <section class="flex flex-col md:flex-row items-start md:justify-between gap-x-1 gap-y-1.2">
+    <header class="py-2lines">
+      <section class="flex flex-col md:flex-row items-start md:justify-between gap-x-1 gap-y-1line">
         <h1 class="text-lg sm:min-w-max"><a href="/">Bego Solutions</a></h1>
         <.navigation {assigns} />
       </section>
@@ -109,10 +109,10 @@ defmodule BegoWeb.Layouts do
 
   defp footer(assigns) do
     ~H"""
-    <footer class="pt-2.4">
-      <section class="py-1.2 flex flex-col gap-y-1.2 md:flex-row items-start md:items-center justify-between">
+    <footer class="pt-2lines">
+      <section class="py-1line flex flex-col gap-y-1line md:flex-row items-start md:items-center justify-between">
         <.copyright />
-        <div class="grid grid-flow-col gap-x-2 gap-y-2.4">
+        <div class="grid grid-flow-col gap-x-2 gap-y-2lines">
           <Social.github />
           <Social.twitter />
           <Social.linkedin />

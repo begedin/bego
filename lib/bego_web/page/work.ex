@@ -78,7 +78,7 @@ defmodule BegoWeb.Page.Work do
   defp definition(assigns) do
     ~H"""
     <dt class="text-gray-900 text-md font-bold"><%= render_slot(@term) %></dt>
-    <dd class="mb-1.2 last:mb-0"><%= render_slot(@description) %></dd>
+    <dd class="mb-1line last:mb-0"><%= render_slot(@description) %></dd>
     """
   end
 

@@ -16,7 +16,7 @@
 
   body {
     @apply flex flex-col min-h-screen;
-    @apply text-md py-1.2;
+    @apply text-md py-1line;
     @apply max-w-prose;
     @apply px-2 sm:px-4 md:px-[12ch] lg:px-[20ch];
 
@@ -199,11 +199,11 @@
 .post h2,
 .post h3,
 .post p {
-  @apply py-1.2 px-0;
+  @apply py-1line px-0;
 }
 
 .post pre {
-  @apply py-1.2 px-1;
+  @apply py-1line px-1;
 }
 
 .post h1,
@@ -233,5 +233,5 @@
 }
 
 .post ul {
-  @apply py-1.2 pl-1 pt-0 list-disc list-inside;
+  @apply py-1line pl-1 pt-0 list-disc list-inside;
 }
