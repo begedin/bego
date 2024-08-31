@@ -5,9 +5,9 @@ module.exports = {
   content: ["./js/**/*.js", "../lib/*_web.ex", "../lib/*_web/**/*.*ex"],
   theme: {
     fontSize: {
-      md: ["1rem", "1.2rem"],
-      lg: ["2rem", "2.4rem"],
-      xl: ["3rem", "3.6rem"],
+      md: ["1rem", "calc(var(--line-height) * 1)"],
+      lg: ["2rem", "calc(var(--line-height) * 2)"],
+      xl: ["3rem", "calc(var(--line-height) * 3)"],
     },
     spacing: {
       0: "0",
