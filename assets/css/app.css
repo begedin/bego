@@ -3,16 +3,38 @@
 @import "tailwindcss/utilities";
 
 @layer base {
+  :root {
+    --font-size: 16px;
+    --line-height: 1.2rem;
+  }
   html {
-    font-size: 16px;
+    @apply w-full min-h-full flex flex-col items-center;
+
+    font-size: var(--font-size);
     font-family: monospace;
-    @apply w-full h-full;
   }
 
   body {
-    @apply w-full text-md my-1.2;
-    @apply max-w-[40ch] sm:max-w-[60ch] md:max-w-[80ch];
-    @apply mx-3 sm:mx-5 md:mx-[10ch] lg:mx-[16ch];
+    @apply flex flex-col min-h-screen;
+    @apply text-md py-1.2;
+    @apply max-w-prose;
+    @apply px-2 sm:px-4 md:px-[12ch] lg:px-[20ch];
+
+    z-index: 1;
+    position: relative;
+    max-width: calc(min(120ch, round(down, 100%, 1ch)));
+  }
+
+  body::before {
+    z-index: -1;
+    pointer-events: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
     background-size: 1ch 1.2rem;
     background-image: linear-gradient(
         90deg,
@@ -20,6 +42,10 @@
         transparent 0px
       ),
       linear-gradient(rgba(0, 0, 0, 0.15) 0.05rem, transparent 0px);
+  }
+
+  main {
+    min-height: calc(round(down, 68vh, 1.2rem));
   }
 
   /* This file is for your main application CSS */
@@ -177,7 +203,7 @@
 }
 
 .post pre {
-  @apply py-1.2 px-1 -mx-1;
+  @apply py-1.2 px-1;
 }
 
 .post h1,

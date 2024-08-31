@@ -41,7 +41,7 @@ defmodule BegoWeb.UI.Element do
 
   def video(assigns) do
     ~H"""
-    <div class="rounded-lg aspect-video">
+    <div class="rounded-lg">
       <%= render_slot(@inner_block) %>
     </div>
     """

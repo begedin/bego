@@ -41,7 +41,7 @@ defmodule BegoWeb.Page.Talks do
         youtube="OAuTCyvp9NY"
       >
         <Typo.p>
-          Step-by-step of how to setup an ecto sandbox for user with external
+          Step-by-step of how to setup an ecto sandbox for use with external
           APIs, to power cross-project E2E testing
         </Typo.p>
       </.talk>

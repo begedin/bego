@@ -8,7 +8,7 @@ defmodule BegoWeb.Layouts do
   def render("root.html", assigns) do
     ~H"""
     <!DOCTYPE html>
-    <html lang="en" class="h-full">
+    <html lang="en">
       <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -27,7 +27,7 @@ defmodule BegoWeb.Layouts do
         <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
         </script>
       </head>
-      <body class="flex flex-col h-screen">
+      <body>
         <.header_section {assigns} />
         <%= @inner_content %>
         <.footer {assigns} />
@@ -58,7 +58,7 @@ defmodule BegoWeb.Layouts do
     <style type="text/css">
       <%= Makeup.stylesheet(:default_style, "makeup") %>
     </style>
-    <main class="my-1.2 flex-grow blog-post">
+    <main class="my-1.2 blog-post">
       <%= @inner_content %>
     </main>
     """
@@ -66,7 +66,7 @@ defmodule BegoWeb.Layouts do
 
   defp main(assigns) do
     ~H"""
-    <main class="my-1.2 flex-grow">
+    <main class="my-1.2">
       <%= render_slot(@inner_block) %>
     </main>
     """
@@ -76,7 +76,7 @@ defmodule BegoWeb.Layouts do
     ~H"""
     <header class="py-2.4">
       <section class="flex flex-col md:flex-row items-start md:justify-between gap-x-1 gap-y-1.2">
-        <h1 class="text-lg min-w-max"><a href="/">Bego Solutions</a></h1>
+        <h1 class="text-lg sm:min-w-max"><a href="/">Bego Solutions</a></h1>
         <.navigation {assigns} />
       </section>
     </header>
@@ -109,7 +109,7 @@ defmodule BegoWeb.Layouts do
 
   defp footer(assigns) do
     ~H"""
-    <footer class="h-5 py-2.4">
+    <footer class="pt-2.4">
       <section class="py-1.2 flex flex-col gap-y-1.2 md:flex-row items-start md:items-center justify-between">
         <.copyright />
         <div class="grid grid-flow-col gap-x-2 gap-y-2.4">
