@@ -9,9 +9,7 @@
   }
   html {
     @apply w-full min-h-full flex flex-col items-center;
-
-    font-size: var(--font-size);
-    font-family: monospace;
+    font: var(--font-size) monospace;
   }
 
   body {
