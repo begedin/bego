@@ -197,7 +197,7 @@
 .post h2,
 .post h3,
 .post p {
-  @apply py-1line px-0;
+  @apply px-0;
 }
 
 .post pre {

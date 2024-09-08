@@ -1,4 +1,5 @@
 defmodule BegoWeb.BlogHTML do
+  alias BegoWeb.UI.Typo
   use BegoWeb, :html
 
   @spec render(<<_::64, _::_*8>>, any()) :: Phoenix.LiveView.Rendered.t()
@@ -8,12 +9,12 @@ defmodule BegoWeb.BlogHTML do
       <span>Posts tagged with</span> <strong><%= @tag %></strong>
     </p>
     <div class="w-full flex flex-col gap-y-2lines">
-      <article :for={post <- @posts} class="flex flex-col justify-start">
-        <h1 class="font-bold text-lg pb-1line">
-          <a class="text-blue-900 visited:text-blue-800" href={~p"/blog/#{post.id}"}>
+      <article :for={post <- @posts} class="flex flex-col gap-y-1line justify-start">
+        <Typo.h1>
+          <a class="hover:underline visited:text-emerald-800" href={~p"/blog/#{post.id}"}>
             <%= post.title %>
           </a>
-        </h1>
+        </Typo.h1>
         <span class="text-sm text-gray-600 font-bold font-italic"><%= post.date %></span>
         <span class="text-gray-900 post"><%= Phoenix.HTML.raw(post.description) %></span>
       </article>
@@ -24,7 +25,7 @@ defmodule BegoWeb.BlogHTML do
   def render("show.html", assigns) do
     ~H"""
     <div class="flex flex-col gap-y-1line">
-      <h1 class="font-bold text-lg pb-1line  text-emerald-900"><%= @post.title %></h1>
+      <h1 class="font-bold text-lg pb-1line text-emerald-900"><%= @post.title %></h1>
 
       <div class="flex flex-row flex-wrap">
         <a
@@ -35,7 +36,7 @@ defmodule BegoWeb.BlogHTML do
           <%= tag %>
         </a>
       </div>
-      <article class="post">
+      <article class="post flex flex-col gap-y-2lines">
         <%= Phoenix.HTML.raw(@post.body) %>
       </article>
     </div>

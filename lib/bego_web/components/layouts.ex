@@ -109,33 +109,28 @@ defmodule BegoWeb.Layouts do
 
   defp footer(assigns) do
     ~H"""
-    <footer class="pt-2lines">
-      <section class="py-1line flex flex-col gap-y-1line md:flex-row items-start md:items-center justify-between">
-        <.copyright />
-        <div class="grid grid-flow-col gap-x-2 gap-y-2lines">
-          <Social.github />
-          <Social.twitter />
-          <Social.linkedin />
+    <footer class="pt-3lines pb-1line flex flex-col gap-y-1line items-start md:flex-row md:items-center md:justify-between">
+      <div class="flex flex-col items-start">
+        <div class="text-md text-slate-500">
+          This is
+          <Typo.a href="https://github.com/begedin/bego">open source</Typo.a>.
         </div>
-      </section>
-    </footer>
-    """
-  end
 
-  defp copyright(assigns) do
-    ~H"""
-    <div class="flex flex-col items-start">
-      <div class="text-md text-slate-500">
-        Copyright Bego Rješenja <%= Date.utc_today() |> Map.get(:year) %>.
+        <div class="text-md text-slate-500">
+          Copyright Bego Rješenja <%= Date.utc_today() |> Map.get(:year) %>.
+        </div>
+        <address class="text-md text-slate-500 not-italic">
+          Ulica Zrinskih i Frankopana 4,<br /> 42000 Varaždin, Croatia.
+        </address>
       </div>
-      <div class="text-md text-slate-500">
-        Ulica Zrinskih i Frankopana 4, 42000 Varaždin, Croatia.
+
+      <div class="grid grid-cols-4 md:grid-cols-2  gap-x-2 gap-y-1line">
+        <Social.github />
+        <Social.twitter />
+        <Social.linkedin />
+        <Social.email />
       </div>
-      <div class="text-md text-slate-500">
-        Contact via
-        <Typo.a href="mailto:begedinnikola+bego.dev@gmail.com">email</Typo.a>
-      </div>
-    </div>
+    </footer>
     """
   end
 end
