@@ -26,6 +26,16 @@ defmodule BegoWeb.Layouts do
         />
         <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
         </script>
+        <!-- SEO -->
+        <%= if assigns[:post] do %>
+          <link rel="canonical" href={url(~p"/blog/#{@post.id}")} />
+          <meta name="description" content={@post.description |> Floki.text() |> String.trim()} />
+          <meta property="og:title" content={@post.title} />
+          <meta property="og:url" content={url(~p"/blog/#{@post.id}")} />
+          <meta property="og:description" content={@post.description |> Floki.text() |> String.trim()} />
+        <% else %>
+          <link rel="canonical" href={String.replace(@conn.host, ".fly", "")  <> @conn.request_path} />
+        <% end %>
       </head>
       <body>
         <.header_section {assigns} />

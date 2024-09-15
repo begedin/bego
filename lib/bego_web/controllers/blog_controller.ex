@@ -7,7 +7,7 @@ defmodule BegoWeb.BlogController do
 
   def index(conn, _) do
     posts = Blog.list_posts()
-    render(conn, "index.html", posts: posts)
+    render(conn, "index.html", posts: posts, page_title: "Blog | Bego.dev")
   end
 
   def by_tag(conn, %{"tag" => tag}) do
@@ -18,7 +18,7 @@ defmodule BegoWeb.BlogController do
   def show(conn, %{"id" => id}) do
     case Blog.find_by_id(id) do
       nil -> conn |> put_status(404) |> render("404.html")
-      post -> render(conn, "show.html", post: post)
+      post -> render(conn, "show.html", post: post, page_title: post.title <> " | Bego.dev")
     end
   end
 
