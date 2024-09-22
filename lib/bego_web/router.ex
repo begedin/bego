@@ -1,8 +1,20 @@
 defmodule BegoWeb.Router do
   use BegoWeb, :router
 
+  defp redirect_from_fly(conn, _opts) do
+    if String.contains?(conn.host, ".fly.dev") do
+      conn
+      |> Plug.Conn.put_status(301)
+      |> Phoenix.Controller.redirect(external: "https://bego.dev" <> conn.request_path)
+      |> halt()
+    else
+      conn
+    end
+  end
+
   pipeline :browser do
     plug :accepts, ["html"]
+    plug :redirect_from_fly
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, {BegoWeb.Layouts, :root}
@@ -46,18 +58,6 @@ defmodule BegoWeb.Router do
       pipe_through :browser
 
       live_dashboard "/dashboard", metrics: BegoWeb.Telemetry
-    end
-  end
-
-  # Enables the Swoosh mailbox preview in development.
-  #
-  # Note that preview only shows emails that were sent by the same
-  # node running the Phoenix server.
-  if Mix.env() == :dev do
-    scope "/dev" do
-      pipe_through :browser
-
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
 end

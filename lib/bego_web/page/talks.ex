@@ -8,8 +8,24 @@ defmodule BegoWeb.Page.Talks do
   def talks(assigns) do
     ~H"""
     <Layout.column_1>
-      <.talk title="Building a Block-Based Editor in PhoenixLiveView" where="ElixirConf EU, London 2022">
-        <Typo.p><em>Not released yet</em></Typo.p>
+      <.talk title="Migrating a 1000 Class Components App to Vue 3" where="Vue.js Londong 2023">
+        <Typo.p><em>Online</em></Typo.p>
+        <Typo.p>
+          A story of migrating a large Vue 2 app to Vue 3, with a focus on
+          the challenges and solutions for dealing with the fact the project
+          contained almost exclusively class Components
+        </Typo.p>
+        <Typo.p>
+          <Typo.a href="https://gitnation.com/contents/migrating-a-1000-class-components-app-to-vue-3">
+            Link to video and transcript
+          </Typo.a>
+        </Typo.p>
+      </.talk>
+      <.talk
+        title="Building a Block-Based Editor in PhoenixLiveView"
+        where="ElixirConf EU, London 2022"
+        youtube="7yZwxsG7tVs"
+      >
         <Typo.p>
           Successes and failures in an attempt to build a block-based editor
           in PhoenixLiveView
@@ -51,7 +67,7 @@ defmodule BegoWeb.Page.Talks do
 
   def talk(assigns) do
     ~H"""
-    <Element.card>
+    <Element.card spacing="medium">
       <Typo.h2 class="text-lg font-bold text-emerald-900"><%= @title %></Typo.h2>
       <p>At <em><%= @where %></em></p>
       <%= if assigns[:youtube] do %>
@@ -59,7 +75,7 @@ defmodule BegoWeb.Page.Talks do
           <Element.youtube url={@youtube} title={@title} />
         </Element.video>
       <% end %>
-      <div><%= render_slot(@inner_block) %></div>
+      <%= render_slot(@inner_block) %>
     </Element.card>
     """
   end

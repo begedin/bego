@@ -25,7 +25,7 @@ defmodule BegoWeb.Page.Work do
       <Typo.p>
         However, feel free to
         <Typo.a href="mailto:begedinnikola+bego.dev@gmail.com">reach out</Typo.a>
-        to me for collaboration on things in the Elixir, or Vue commmunity, as well as for lower
+        for collaboration on things in the Elixir, or Vue commmunity, as well as for lower
         volume consulting in the range of a few hours total.
       </Typo.p>
       <Typo.p>
@@ -33,10 +33,8 @@ defmodule BegoWeb.Page.Work do
       </Typo.p>
       <Typo.h2>Pricing</Typo.h2>
       <Typo.p>
-        My typical hourly rates are negotiable,
-        but <strong class="font-bold">start at $60/hour</strong> or the
-        equivalent in your preferred currency. Daily or per-project rates are
-        also possible.
+        My hourly rates are negotiable, and depend on the type of volume of work you need.
+        Daily or per-project rates are also possible.
       </Typo.p>
       <Typo.h2>Services</Typo.h2>
       <dl>
